@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from '../components/Cards/MovieCard';
-
+import { BarLoader } from 'react-spinners';
 function Data() {
   const [movieData, setMovieData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +24,8 @@ function Data() {
         setMovieData(moviesArray);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -31,6 +34,16 @@ function Data() {
 
   return (
     <div className="movie-list">
+     {loading && (
+        <div
+          className="bar-loader"
+          style={{
+            
+          }}
+        >
+          <BarLoader color="#36d7b7" />
+        </div>
+      )}
       {movieData.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
