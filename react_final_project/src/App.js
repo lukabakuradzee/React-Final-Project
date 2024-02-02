@@ -4,7 +4,7 @@ import AppRoutes from './Routes';
 function App() {
   return (
     <div className="App">
-      <h1>Sport Live Info</h1>
+      <h1>IMDB Movies</h1>
       <AppRoutes />
     </div>
   );
