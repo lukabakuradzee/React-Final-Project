@@ -5,16 +5,11 @@ const MovieCard = ({ movie }) => {
     <div className="movie-card">
       <h2>{movie.title}</h2>
       <img src={movie.image} alt={movie.title} />
-      <p>Rating: {movie.rating}</p>
-      <p>Year: {movie.year}</p>
-      <p>Genre: {movie.genre}</p>
-      <p>Description: {movie.description}</p>
-      <p>Director: {movie.director}</p>
-      {/* <iframe src={movie.trailer_embed_link}
-      width="560"
-      height="315" frameborder="0"></iframe> */}
+      <p><span>Rating:</span> {movie.rating}</p>
+      <p><span>Year:</span> {movie.year}</p>
+      <p><span>Genre:</span> {movie.genre.join(', ')}</p>
+      <p><span>Description:</span> {movie.description}</p>
     </div>
   );
 };
-
 export default MovieCard;
