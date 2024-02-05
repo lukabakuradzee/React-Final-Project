@@ -3,9 +3,16 @@ import { useAuthContext } from '../../context/auth/AuthContextProvider';
 import { logOutAction } from '../../context/auth/actions';
 
 const Home = () => {
-  const { dispatch } = useAuthContext();
+  const { state, dispatch } = useAuthContext();
+  const { user } = state;
+
   return (
     <div className="home">
+      {user && (
+        <div className="username-profile">
+          <p>Welcome, {user.userName}</p>
+        </div>
+      )}
       <Data></Data>
       <button
         onClick={() => {

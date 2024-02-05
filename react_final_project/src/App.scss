@@ -225,3 +225,16 @@ p {
     }
   }
 }
+
+.username-profile {
+  width: 20%;
+  border: 2px solid #ffd000de;
+  border-radius: 5px;
+  margin: 3em auto;
+
+  p {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}
