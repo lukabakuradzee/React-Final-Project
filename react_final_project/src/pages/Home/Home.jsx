@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="home">
       {user && (
-        <div className="username-profile">
+        <div className="user-profile">
           <p>Welcome, {user.userName}</p>
         </div>
       )}

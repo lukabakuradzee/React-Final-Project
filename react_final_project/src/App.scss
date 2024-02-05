@@ -131,6 +131,7 @@ p {
 }
 
 .home {
+  padding-bottom: 2em;
   button {
     width: 30%;
     display: block;
@@ -226,15 +227,25 @@ p {
   }
 }
 
-.username-profile {
+.user-profile {
   width: 20%;
   border: 2px solid #ffd000de;
   border-radius: 5px;
   margin: 3em auto;
 
   p {
+    color: #ffd000de;
     text-align: center;
     font-size: 1.1rem;
     font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+}
+
+.pagination {
+  display: flex;
+  button {
+    background-color: #ffd000de;
+    width: 20px;
   }
 }
