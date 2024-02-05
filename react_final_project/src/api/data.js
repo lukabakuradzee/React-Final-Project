@@ -3,7 +3,7 @@ import MovieCard from '../components/Cards/MovieCard';
 import { BarLoader } from 'react-spinners';
 import GenreFilter from '../components/Cards/GenreFilter';
 
-function Data() {
+const Data = () => {
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedGenre, setSelectedGenre] = useState([]);
@@ -45,14 +45,22 @@ function Data() {
     );
   };
 
-
-  //  Pagination & Filter By Genre
+  // Apply filters and pagination
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
   const currentMovies = movieData
-    .filter((movie) => selectedGenre.length === 0 || movie.genre.some((g) => selectedGenre.includes(g)))
+    .filter(
+      (movie) =>
+        selectedGenre.length === 0 ||
+        movie.genre.some((g) => selectedGenre.includes(g)),
+    )
     .slice(indexOfFirstMovie, indexOfLastMovie);
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  console.log('selectedGenre:', selectedGenre);
+  console.log('movieData:', movieData);
+  console.log('currentMovies:', currentMovies);
 
   return (
     <>
@@ -76,13 +84,17 @@ function Data() {
         {Array.from({
           length: Math.ceil(movieData.length / moviesPerPage),
         }).map((_, index) => (
-          <button key={index + 1} onClick={() => paginate(index + 1)}>
+          <button
+            key={index + 1}
+            onClick={() => paginate(index + 1)}
+            className={currentPage === index + 1 ? 'activePage' : ''}
+          >
             {index + 1}
           </button>
         ))}
       </div>
     </>
   );
-}
+};
 
 export default Data;

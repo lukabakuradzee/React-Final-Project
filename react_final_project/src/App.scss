@@ -256,5 +256,10 @@ p {
   button {
     background-color: #ffd000de;
     width: 20px;
+
+  &.activePage {
+    background-color: #36d7b7;
   }
+}
+
 }
