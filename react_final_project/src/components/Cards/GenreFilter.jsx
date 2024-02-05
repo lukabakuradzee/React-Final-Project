@@ -1,10 +1,10 @@
 import React from 'react';
 
 const GenreFilter = ({ selectedGenres, handleGenreChange }) => {
-  const genres = ['Action', 'Drama', 'Comedy', 'Sci-Fi', 'Romance'];
+  const genres = ['Action', 'Drama', 'Comedy', 'Sci-Fi', 'Romance', 'History'];
 
   return (
-    <div className='movie-filter'>
+    <div className="movie-filter">
       {genres.map((genre) => (
         <label key={genre}>
           <input
