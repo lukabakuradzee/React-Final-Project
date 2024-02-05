@@ -219,7 +219,8 @@ p {
     align-items: center;
     cursor: pointer;
     font-size: 1em;
-    color: #36d7b7;
+    color: #ffd000de;
+    font-weight: bold;
 
     input {
       margin-right: 5px;
@@ -232,6 +233,8 @@ p {
   border: 2px solid #ffd000de;
   border-radius: 5px;
   margin: 3em auto;
+  cursor: pointer;
+  transition: .5s all;
 
   p {
     color: #ffd000de;
@@ -239,6 +242,12 @@ p {
     font-size: 1.1rem;
     font-weight: bold;
     letter-spacing: 0.5px;
+  }
+  &:hover {
+    background-color: #ffd000de;
+     p {
+      color: black;
+     }
   }
 }
 
