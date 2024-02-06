@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MovieCard from '../components/Cards/MovieCard';
 import { BarLoader } from 'react-spinners';
 import GenreFilter from '../components/Cards/GenreFilter';
+import Search from '../components/Search/Search';
 
 const Data = () => {
   const [movieData, setMovieData] = useState([]);
@@ -45,7 +46,6 @@ const Data = () => {
     );
   };
 
-
   // Apply filters and pagination
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
@@ -61,6 +61,7 @@ const Data = () => {
 
   return (
     <>
+      <Search  data={movieData}/>
       <GenreFilter
         selectedGenres={selectedGenre}
         handleGenreChange={handleGenreChange}
@@ -73,10 +74,7 @@ const Data = () => {
         )}
 
         {currentMovies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-          />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
 

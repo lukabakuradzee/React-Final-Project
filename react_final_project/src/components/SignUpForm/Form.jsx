@@ -10,7 +10,7 @@ const Form = () => {
     email: '',
   });
   const [error, setError] = useState('');
-  const navgiate = useNavigate();
+  const navigate = useNavigate();
   const signUpHandler = (e) => {
     e.preventDefault();
     if (!info.userName || !info.email || !info.password) {
@@ -19,7 +19,7 @@ const Form = () => {
     }
     signUp(info)
       .then(() => {
-        navgiate(SIGN_IN_PAGE, { state: { success: true } });
+        navigate(SIGN_IN_PAGE, { state: { success: true } });
       })
       .catch((err) => {
         console.log(err);
