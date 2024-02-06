@@ -45,6 +45,7 @@ const Data = () => {
     );
   };
 
+
   // Apply filters and pagination
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
@@ -72,7 +73,10 @@ const Data = () => {
         )}
 
         {currentMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+          />
         ))}
       </div>
 

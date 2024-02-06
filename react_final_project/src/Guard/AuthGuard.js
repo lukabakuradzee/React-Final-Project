@@ -9,14 +9,14 @@ const AuthGuard = ({ children }) => {
       {state.isAuthenticated ? (
         children
       ) : (
-        <div className="auth-message">
-          <h1>You are not AUTHENTICATED</h1>
-          <h4>Please sign in or sign up</h4>
+        <div className="account-modal-content">
+          <h2>You are not AUTHENTICATED</h2>
+          <h3>JustWatch Account</h3>
           <button>
-            <Link to={SIGN_IN_PAGE}>Sign IN</Link>
+            <Link to={SIGN_IN_PAGE}>Sign in</Link>
           </button>
           <button>
-            <Link to={SIGN_UP_PAGE}>Sign UP</Link>
+            <Link to={SIGN_UP_PAGE}>Create an account</Link>
           </button>
         </div>
       )}

@@ -1,7 +1,18 @@
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lato:wght@900&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Raleway:wght@200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,900&display=swap');
+
 body {
-  background-color: black;
+  background-color: #060d17;
   color: white;
   font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  h1 {
+    color: #ffd000de;
+  }
+  h2 {
+    color: #d5d5d5;
+  }
 }
 
 button {
@@ -32,9 +43,41 @@ p {
   }
 }
 
-.success-message {
-  color: #36d7b7;
+.account-modal-content {
+  width: 40%;
+  padding: 2em;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
   text-align: center;
+  border: 2px solid #d5d5d5;
+  border-radius: 5px;
+   h3 {
+    color: #d5d5d5;
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+   }
+
+   button {
+    padding: 1em 2em;
+    color: #d5d5d5;
+    font-size: 1.2rem;
+    background-color: #1c252F;
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+     a {
+      color: #d5d5d5;
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+     }
+
+     &:hover  {
+      background-color: #1c252f35;
+     }
+   }
 }
 
 .auth-message {
@@ -133,7 +176,7 @@ p {
 .home {
   padding-bottom: 2em;
   button {
-    width: 30%;
+    width: 25%;
     display: block;
     margin: 3em auto 0;
     padding: 1em 5em;
@@ -200,7 +243,12 @@ p {
     border-radius: 8px;
     margin-bottom: 0.5em;
   }
+  .add-to-favorites {
+    width: 50px;
+    font-size: 1em;
+  }
 }
+
 
 .movie-list {
   display: flex;
@@ -234,7 +282,7 @@ p {
   border-radius: 5px;
   margin: 3em auto;
   cursor: pointer;
-  transition: .5s all;
+  transition: 0.5s all;
 
   p {
     color: #ffd000de;
@@ -257,9 +305,8 @@ p {
     background-color: #ffd000de;
     width: 20px;
 
-  &.activePage {
-    background-color: #36d7b7;
+    &.activePage {
+      background-color: #36d7b7;
+    }
   }
-}
-
 }
