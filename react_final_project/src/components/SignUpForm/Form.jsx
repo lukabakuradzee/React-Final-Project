@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signUp } from '../../api/auth';
 import { HOME_PAGE, SIGN_IN_PAGE } from '../../constants/routes';
 import { Link, useNavigate } from 'react-router-dom';
+import { BarLoader } from 'react-spinners';
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -10,6 +11,7 @@ const Form = () => {
     email: '',
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const signUpHandler = (e) => {
     e.preventDefault();
@@ -17,12 +19,16 @@ const Form = () => {
       setError('You must fill in all fields');
       return;
     }
+    setLoading(true);
     signUp(info)
       .then(() => {
         navigate(SIGN_IN_PAGE, { state: { success: true } });
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -60,7 +66,12 @@ const Form = () => {
           });
         }}
       />
-      {error && <p style={{ color: 'red', textAlign: "center"}}>{error}</p>}
+      {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+      {loading && (
+        <div className="bar-loader" style={{}}>
+          <BarLoader color="#36d7b7" />
+        </div>
+      )}
 
       <button onClick={signUpHandler}>Submit</button>
       <button>

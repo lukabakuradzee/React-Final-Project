@@ -3,6 +3,7 @@ import APP_ROUTES from "./config/routes";
 import { Route, Routes } from "react-router-dom";
 
 const AppRoutes = () => {
+
   return (
     <Routes>
       {APP_ROUTES.map((route) => {

@@ -3,11 +3,13 @@ import {
   SIGN_IN_PAGE,
   SIGN_UP_PAGE,
   NOT_FOUND,
+
 } from "../constants/routes";
 import Home from "../pages/Home/Home";
 import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import NotFound from "../pages/not-found/index";
+import MovieDetails from "../components/MovieDetails/MovieDetails";
 
 import AuthGuard from "../Guard/AuthGuard";
 import GustGuard from "../Guard/GustGuard";
@@ -27,6 +29,11 @@ const routes = [
     path: SIGN_UP_PAGE,
     Component: SignUp,
     Guard: GustGuard,
+  },
+  {
+    path: "/:id",
+    Component: MovieDetails,
+    Guard: AuthGuard,
   },
   {
     path: NOT_FOUND,

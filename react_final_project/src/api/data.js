@@ -17,10 +17,9 @@ const Data = () => {
       const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key':
-            '1999ac9f20mshf1e28e13529741bp13150ajsne0771a3addb4',
-          'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
-        },
+          'X-RapidAPI-Key': 'd2a00f8c06msh867e7091c05c0e4p18a7b3jsn2e66161823a2',
+          'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
+        }
       };
 
       try {
@@ -46,6 +45,8 @@ const Data = () => {
     );
   };
 
+  
+
   // Apply filters and pagination
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
@@ -61,7 +62,7 @@ const Data = () => {
 
   return (
     <>
-      <Search  data={movieData}/>
+      <Search  data={movieData} />
       <GenreFilter
         selectedGenres={selectedGenre}
         handleGenreChange={handleGenreChange}

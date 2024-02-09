@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
     
@@ -10,6 +11,9 @@ const MovieCard = ({ movie }) => {
       <p><span>Year:</span> {movie.year}</p>
       <p><span>Genre:</span> {movie.genre.join(', ')}</p>
       <p><span>Description:</span> {movie.description}</p>
+      <button>
+        <Link to={`/${movie.id}`}>View Details</Link>
+</button>
     </div>
   );
 };
