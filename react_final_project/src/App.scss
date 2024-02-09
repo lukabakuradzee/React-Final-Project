@@ -177,7 +177,7 @@ p {
 
 .home {
   padding-bottom: 2em;
-  button {
+  .button-log-out {
     width: 25%;
     display: block;
     margin: 3em auto 0;
@@ -245,9 +245,15 @@ p {
     border-radius: 8px;
     margin-bottom: 0.5em;
   }
-  .add-to-favorites {
-    width: 50px;
-    font-size: 1em;
+  button {
+    margin: 1em 0;
+    padding: 1em 3em;
+    border-style: none;
+    background-color: #ffd000de;
+  }
+  a {
+    color: black;
+    font-size: 1.1rem;
   }
 }
 
@@ -302,9 +308,14 @@ p {
 
 .pagination {
   display: flex;
+  gap: 1em;
+  place-content: center;
   button {
+    margin: 1em 0;
+    padding: 1em 3em;
+    border-style: none;
     background-color: #ffd000de;
-    width: 20px;
+    cursor: pointer;
 
     &.activePage {
       background-color: #36d7b7;

@@ -14,7 +14,7 @@ const Home = () => {
         </div>
       )}
       <Data></Data>
-      <button
+      <button className='button-log-out'
         onClick={() => {
           dispatch(logOutAction());
         }}

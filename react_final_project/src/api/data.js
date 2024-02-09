@@ -27,7 +27,7 @@ import Search from '../components/Search/Search';
 const Data = () => {
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState('')
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const moviesPerPage = 21;
@@ -38,7 +38,7 @@ const Data = () => {
         const movies = await fetchData();
         setMovieData(movies);
       } catch (error) {
-        setError(true);
+        setError('Error while fetching data: ' + error.message);
       } finally {
         setLoading(false);
       }
@@ -79,7 +79,7 @@ const Data = () => {
         handleGenreChange={handleGenreChange}
       />
       <div className="movie-list">
-        {error && <h2>Something Happened</h2>}
+        {error &&  <h1>{error}</h1>}
         {loading && (
           <div className="bar-loader" style={{}}>
             <BarLoader color="#36d7b7" />
