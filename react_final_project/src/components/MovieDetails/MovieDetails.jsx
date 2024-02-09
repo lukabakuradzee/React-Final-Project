@@ -30,7 +30,7 @@ const MovieDetails = () => {
   if (loading) {
     return <div className="bar-loader" style={{}}>
     <BarLoader color="#36d7b7" />
-  </div>;
+  </div>
   }
 
   if (!movie) {
