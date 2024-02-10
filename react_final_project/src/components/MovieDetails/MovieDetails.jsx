@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '../../api/data'; 
 import { BarLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { id } = useParams(); 
@@ -54,6 +55,7 @@ const MovieDetails = () => {
       <p><span>Genre:</span> {movie.genre.join(', ')}</p>
       <p><span>Description:</span> {movie.description}</p>
       <p><span>IMDB:</span> <a href="https://www.imdb.com/title/tt0068646" target='blank'>{movie.imdb_link}</a></p>
+      <Link to={`/`}><button className='back-btn'>Back</button></Link>
       </div>
       </div>
     </div>

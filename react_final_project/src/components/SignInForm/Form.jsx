@@ -75,7 +75,7 @@ const Form = () => {
       {info.error && <h4>{info.error}</h4>}
       <button onClick={submitHandler}>Submit</button>
       <Link className="back-home" to={HOME_PAGE}>
-        Back to home page
+       <button>Back to home page</button>
       </Link>
     </form>
   );

@@ -74,11 +74,10 @@ const Form = () => {
       )}
 
       <button onClick={signUpHandler}>Submit</button>
-      <button>
-        <Link className="back-home" to={HOME_PAGE}>
-          Back to home page
-        </Link>
-      </button>
+
+      <Link  to={HOME_PAGE}>
+        <button>Back to home page</button>
+      </Link>
     </form>
   );
 };
