@@ -82,7 +82,7 @@ const Data = () => {
         {error &&  <h1>{error}</h1>}
         {loading && (
           <div className="bar-loader" style={{}}>
-            <BarLoader color="#36d7b7" />
+            <BarLoader color="#ffd000de" />
           </div>
         )}
 

@@ -41,7 +41,8 @@ p {
   margin: auto;
 
   h2 {
-    color: #36d7b7;
+    color: #ffd000de;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 }
 
@@ -131,15 +132,19 @@ p {
   width: 40%;
   padding: 2em;
   margin: auto;
-  border: 2px solid #36d7b7;
+  border: 2px solid #ffd000de;
   display: flex;
   flex-direction: column;
   row-gap: 0.5em;
   background-color: rgba(0, 0, 0, 0.8); /* Adjust the opacity as needed */
 
   label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
     text-align: center;
-    color: white;
+    color: #ffd000de;
+    letter-spacing: 1px;
   }
 
   input {
@@ -156,15 +161,19 @@ p {
     width: 100%; /* Take up the full width */
     margin: 0.5em 0;
     padding: 0.8em;
-    background-color: #36d7b7;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #d5d5d5;
+    font-size: 1.1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #269c88;
+      background-color: #ffd000de;
+      color: #000000;
     }
   }
 }
@@ -172,7 +181,7 @@ p {
 .sign-up-page {
   h2 {
     text-align: center;
-    color: #36d7b7;
+    color: #ffd000de;
   }
 }
 
@@ -184,31 +193,35 @@ p {
     margin: 3em auto 0;
     padding: 1em 5em;
     font-size: 1.2rem;
-    background-color: #36d7b7;
-    color: white;
+    background-color: #ffd000de;
+    color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-
     &:hover {
-      background-color: #2d9c96;
+      background-color: #d5d5d5;
     }
+
   }
+
 }
 
 .back-home {
-  padding: 0.5rem 1rem;
-  background-color: #36d7b7;
-  color: #fff;
-  border: none;
+  padding: 0.8em;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #d5d5d5;
+  font-size: 1.1rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
   text-align: center;
 
   &:hover {
-    background-color: #269c88;
+    background-color: #ffd000de;
+    color: #000000;
   }
 }
 
@@ -233,8 +246,12 @@ p {
   text-align: center;
   background-color: black;
   color: #36d7b7;
+  h2 {
+    color: #d5d5d5;
+  }
   p {
     margin: 0.5em 0;
+    color: #d5d5d5;
   }
   span {
     color: #ffd000de;
@@ -246,6 +263,7 @@ p {
     border-radius: 8px;
     margin-bottom: 0.5em;
   }
+
   button {
     margin: 1em 0;
     padding: 1em 3em;
@@ -254,10 +272,16 @@ p {
     cursor: pointer;
   }
 
-
   a {
     color: black;
     font-size: 1.1rem;
+  }
+
+  .imdb-logo {
+    margin-left: 0.5em;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
   }
 }
 
@@ -320,9 +344,17 @@ p {
     border-style: none;
     background-color: #ffd000de;
     cursor: pointer;
+    transition: .5s all;
 
     &.activePage {
-      background-color: #36d7b7;
+      background-color: #d5d5d5;
+      color: black;
+      font-weight: bold;
+    }
+    &:hover {
+      background-color: #d5d5d5;
+      color: black;
+      font-weight: bold;
     }
   }
 }
@@ -398,4 +430,10 @@ p {
 
 .movie-description {
   width: 50%;
+  img {
+    margin-left: 0.5em;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+  }
 }

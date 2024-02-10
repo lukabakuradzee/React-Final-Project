@@ -29,7 +29,7 @@ const MovieDetails = () => {
 
   if (loading) {
     return <div className="bar-loader" style={{}}>
-    <BarLoader color="#36d7b7" />
+    <BarLoader color="#ffd000de" />
   </div>
   }
 
@@ -45,7 +45,11 @@ const MovieDetails = () => {
         <img src={movie.image} alt={movie.title} />
         </figcaption>
         <div className='movie-description'>
-      <p><span>Rating:</span> {movie.rating}</p>
+      <p>
+        <span>Rating: </span>
+       {movie.rating}
+       <img className='imdb-logo' src="https://www.justwatch.com/appassets/img/imdb-logo.png" alt="" />
+        </p>
       <p><span>Year:</span> {movie.year}</p>
       <p><span>Genre:</span> {movie.genre.join(', ')}</p>
       <p><span>Description:</span> {movie.description}</p>

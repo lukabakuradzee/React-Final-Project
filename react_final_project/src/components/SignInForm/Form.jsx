@@ -69,13 +69,13 @@ const Form = () => {
             
           }}
         >
-          <BarLoader color="#36d7b7" />
+          <BarLoader color="#ffd000de" />
         </div>
       )}
       {info.error && <h4>{info.error}</h4>}
       <button onClick={submitHandler}>Submit</button>
       <Link className="back-home" to={HOME_PAGE}>
-        back to home page
+        Back to home page
       </Link>
     </form>
   );
