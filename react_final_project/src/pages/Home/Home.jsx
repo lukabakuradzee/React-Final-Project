@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Data from '../../api/data';
 import { useAuthContext } from '../../context/auth/AuthContextProvider';
 import { logOutAction } from '../../context/auth/actions';
@@ -9,12 +10,15 @@ const Home = () => {
   return (
     <div className="home">
       {user && (
-        <div className="user-profile">
-          <p>Welcome, {user.userName}</p>
-        </div>
+        <Link to={`/user/${user.userName}`}>
+          <div className="user-info">
+            <p>Welcome, {user.userName}</p>
+          </div>
+        </Link>
       )}
       <Data></Data>
-      <button className='button-log-out'
+      <button
+        className="button-log-out"
         onClick={() => {
           dispatch(logOutAction());
         }}

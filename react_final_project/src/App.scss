@@ -329,7 +329,7 @@ p {
   }
 }
 
-.user-profile {
+.user-info {
   width: 20%;
   border: 2px solid #ffd000de;
   border-radius: 5px;
@@ -462,4 +462,38 @@ p {
     padding: 0.5em 3em;
     cursor: pointer;
   }
+}
+
+.user-account {
+  width: 50%;
+  padding: 2em 5em;
+  border: 2px solid #ffd000de;
+  border-radius: 5px;
+  margin: 3em auto;
+  cursor: pointer;
+  transition: 0.5s all;
+
+  h2 {
+    color: #ffd000de;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 2em;
+    display: block;
+    margin-inline: auto;
+    background-color: #ffd000de;
+    border-style: none;
+    font-size: 1.1rem;
+    padding: 0.5em 4em;
+    cursor: pointer;
+  }
+
 }

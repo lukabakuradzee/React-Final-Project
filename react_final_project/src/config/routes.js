@@ -10,6 +10,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import NotFound from "../pages/not-found/index";
 import MovieDetails from "../components/MovieDetails/MovieDetails";
+import UserProfile from "../components/UserProfile/UserProfile";
 
 import AuthGuard from "../Guard/AuthGuard";
 import GustGuard from "../Guard/GustGuard";
@@ -31,8 +32,13 @@ const routes = [
     Guard: GustGuard,
   },
   {
-    path: "/:id",
+    path: "/movie/:id",
     Component: MovieDetails,
+    Guard: AuthGuard,
+  },
+  {
+    path: "/user/:user",
+    Component: UserProfile,
     Guard: AuthGuard,
   },
   {

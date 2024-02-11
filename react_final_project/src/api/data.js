@@ -9,7 +9,7 @@ import Search from '../components/Search/Search';
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '832ba6c62bmsh253b7dec239b4e8p198214jsn32a66f5ed163',
+        'X-RapidAPI-Key': '183752015amsh90d2c96438eb721p131076jsnee9865e9c6c7',
         'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
       }
     };

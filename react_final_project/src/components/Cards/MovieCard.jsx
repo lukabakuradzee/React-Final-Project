@@ -16,7 +16,7 @@ const MovieCard = ({ movie }) => {
       <p><span>Genre:</span> {movie.genre.join(', ')}</p>
       <p><span>Description:</span> {movie.description}</p>
       <button>
-        <Link to={`/${movie.id}`}>View Details</Link>
+        <Link to={`/movie/${movie.id}`}>View Details</Link>
 </button>
     </div>
   );
