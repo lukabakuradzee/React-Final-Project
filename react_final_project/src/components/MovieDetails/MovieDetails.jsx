@@ -25,14 +25,40 @@ const MovieDetails = () => {
       }
     };
 
-    fetchMovieDetails(); // Call the renamed function
+    fetchMovieDetails(); 
   }, [id]);
+
+  // ADD TO FAVORITES
+
+  const addToFavorites = (movie) => {
+    try {
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  
+      if (!Array.isArray(favorites)) {
+        favorites = [];
+      }
+  
+      if (!favorites.some(favorite => favorite.id === movie.id)) {
+        favorites.push(movie);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        alert('Movie added to favorites!');
+      } else {
+        alert('Movie is already in favorites');
+      }
+    } catch (error) {
+      console.error('Error adding to favorites:', error);
+    }
+  };
+  
 
   if (loading) {
     return <div className="bar-loader" style={{}}>
     <BarLoader color="#ffd000de" />
   </div>
   }
+
+
+  // WHEN MOVIE DETAILS NOT FOUND
 
   if (!movie) {
     return <div>No movie details found</div>;
@@ -57,6 +83,7 @@ const MovieDetails = () => {
       <p><span>IMDB-ID:</span> {movie.imdbid}</p>
       <p><span>IMDB:</span> <a href="https://www.imdb.com/title/tt0068646" target='blank'>{movie.imdb_link}</a></p>
       <Link to={`/`}><button className='back-btn'>Back</button></Link>
+      <button className='add-to-favorites-btn' onClick={() => addToFavorites(movie)}>Add To Favorites</button>
       </div>
       </div>
     </div>
