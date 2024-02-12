@@ -335,7 +335,9 @@ p {
   cursor: pointer;
   transition: 0.5s all;
 
-
+  .user-icon {
+    margin-right: 0.5em;
+  }
   p {
     color: #ffd000de;
     text-align: center;
@@ -350,7 +352,6 @@ p {
     }
   }
 }
-
 
 .pagination {
   display: flex;

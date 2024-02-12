@@ -12,7 +12,7 @@ const Home = () => {
       {user && (
         <Link to={`/user/${user.userName}`}>
           <div className="user-info">
-            <p>Welcome, {user.userName}</p>
+            <p><i class="fa-solid fa-user user-icon"></i>Welcome, {user.userName}</p>
           </div>
         </Link>
       )}
