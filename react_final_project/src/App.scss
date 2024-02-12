@@ -63,7 +63,7 @@ p {
       background-color: #ffd000de;
       color: #000000;
     }
-}
+  }
 }
 
 .account-modal-content {
@@ -218,29 +218,27 @@ p {
     &:hover {
       background-color: #d5d5d5;
     }
-
   }
-
 }
 
 .back-home {
   button {
-  padding: 0.8em;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #d5d5d5;
-  font-size: 1.1rem;
-  font-family: 'Lato', sans-serif;
-  font-weight: 900;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-align: center;
+    padding: 0.8em;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #d5d5d5;
+    font-size: 1.1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
 
-  &:hover {
-    background-color: #ffd000de;
-    color: #000000;
+    &:hover {
+      background-color: #ffd000de;
+      color: #000000;
+    }
   }
-}
 }
 
 .bar-loader {
@@ -337,6 +335,7 @@ p {
   cursor: pointer;
   transition: 0.5s all;
 
+
   p {
     color: #ffd000de;
     text-align: center;
@@ -352,6 +351,7 @@ p {
   }
 }
 
+
 .pagination {
   display: flex;
   gap: 1em;
@@ -362,7 +362,7 @@ p {
     border-style: none;
     background-color: #ffd000de;
     cursor: pointer;
-    transition: .5s all;
+    transition: 0.5s all;
 
     &.activePage {
       background-color: #d5d5d5;
@@ -470,12 +470,17 @@ p {
   border: 2px solid #ffd000de;
   border-radius: 5px;
   margin: 3em auto;
-  cursor: pointer;
   transition: 0.5s all;
 
   h2 {
     color: #ffd000de;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+
+  .user-icon {
+    margin-right: 0.2em;
   }
 
   p {
@@ -495,5 +500,4 @@ p {
     padding: 0.5em 4em;
     cursor: pointer;
   }
-
 }

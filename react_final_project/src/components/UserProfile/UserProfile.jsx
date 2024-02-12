@@ -13,7 +13,7 @@ const UserProfile = () => {
 
   return (
     <div className="user-account">
-      <h2>User Profile</h2>
+      <h2><i class="fa-solid fa-user user-icon"></i>User Profile</h2>
       {user && (
         <>
           <p>Username: {user.userName}</p>
