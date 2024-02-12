@@ -4,6 +4,7 @@ import { HOME_PAGE, SIGN_IN_PAGE } from '../../constants/routes';
 import { Link, useNavigate } from 'react-router-dom';
 import { BarLoader } from 'react-spinners';
 
+
 const Form = () => {
   const [info, setInfo] = useState({
     userName: '',
@@ -19,7 +20,15 @@ const Form = () => {
       setError('You must fill in all fields');
       return;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(info.email)) {
+      setError('Invalid email format');
+      return;
+    }
+    
     setLoading(true);
+     
     signUp(info)
       .then(() => {
         navigate(SIGN_IN_PAGE, { state: { success: true } });

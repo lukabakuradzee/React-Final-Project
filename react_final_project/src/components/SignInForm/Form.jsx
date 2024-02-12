@@ -22,6 +22,8 @@ const Form = () => {
       ...prev,
       error: '',
     }));
+    
+
     signIn(info)
       .then((data) => {
         dispatch(logInAction(data));

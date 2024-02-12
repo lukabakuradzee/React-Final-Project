@@ -54,6 +54,7 @@ const MovieDetails = () => {
       <p><span>Year:</span> {movie.year}</p>
       <p><span>Genre:</span> {movie.genre.join(', ')}</p>
       <p><span>Description:</span> {movie.description}</p>
+      <p><span>IMDB-ID:</span> {movie.imdbid}</p>
       <p><span>IMDB:</span> <a href="https://www.imdb.com/title/tt0068646" target='blank'>{movie.imdb_link}</a></p>
       <Link to={`/`}><button className='back-btn'>Back</button></Link>
       </div>
