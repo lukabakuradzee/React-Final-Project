@@ -3,7 +3,7 @@ import { signUp } from '../../api/auth';
 import { HOME_PAGE, SIGN_IN_PAGE } from '../../constants/routes';
 import { Link, useNavigate } from 'react-router-dom';
 import { BarLoader } from 'react-spinners';
-
+import { emailRegex } from '../../utils/Regex';
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -21,12 +21,11 @@ const Form = () => {
       return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(info.email)) {
       setError('Invalid email format');
       return;
     }
-    
+
     setLoading(true);
      
     signUp(info)
