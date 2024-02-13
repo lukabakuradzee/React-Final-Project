@@ -7,14 +7,12 @@ import FavoriteMoviesModal from './components/MovieDetails/FavoriteMoviesModal';
 function App() {
   return (
     <div className="App">
-      <header>
+      <FavoriteMoviesModal/>
       <Link to={HOME_PAGE}>
         <h1>
           <i class="fab fa-google-play"></i>JustWatch
         </h1>
       </Link>
-      <FavoriteMoviesModal/>
-      </header>
       <AppRoutes />
     </div>
   );

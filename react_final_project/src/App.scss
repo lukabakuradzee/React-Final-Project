@@ -8,7 +8,7 @@ body {
 
 .App {
   h1 {
-    margin: 1.5em auto;
+    margin: 1em auto;
     color: #ffd000de;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -17,22 +17,13 @@ body {
   }
 }
 
-header {
-  padding-left: 44%;
-  display: flex;
-  align-items: center;
-}
-
-.favorites-box {
-  margin-left: 30em;
-}
-
 button {
   font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
   text-align: center;
+  padding-left: 2em;
 }
 
 a {
