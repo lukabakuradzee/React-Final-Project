@@ -10,9 +10,9 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    const fetchMovieDetails = async () => { // Rename the function to avoid conflicts
+    const fetchMovieDetails = async () => { 
       try {
-        const movieData = await fetchData(); // Fetch movie data
+        const movieData = await fetchData(); 
         const selectedMovie = movieData.find((movie) => movie.id === id);
 
         if (selectedMovie) {

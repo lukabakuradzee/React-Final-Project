@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const UserProfile = () => {
   const { state } = useAuthContext();
   const { user } = state;
-  console.log(state)
 
   if (!user) {
     return <div>No user provided</div>;
