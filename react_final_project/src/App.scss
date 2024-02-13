@@ -286,14 +286,11 @@ p {
     padding: 1em 3em;
     border-style: none;
     background-color: #ffd000de;
-    cursor: pointer;
-  }
-
-  a {
     color: black;
     font-size: 1.1rem;
+    cursor: pointer;
   }
-
+  
   .imdb-logo {
     margin-left: 0.5em;
     width: 30px;
@@ -414,7 +411,7 @@ p {
 .movie-details {
   padding: 1em 2em;
   // border: 2px solid #ffd000de;
-  background-color: #090909;
+  // background-color: #090909;
   h2 {
     text-align: center;
     color: #ffd000de;
@@ -500,10 +497,16 @@ p {
     text-align: center;
   }
 
+  .user-profile-buttons-box {
+    display: flex;
+    place-content: center;
+    gap: 2em;
+  }
+
   button {
     margin-top: 2em;
-    display: block;
-    margin-inline: auto;
+    // display: block;
+    // margin-inline: auto;
     background-color: #ffd000de;
     border-style: none;
     font-size: 1.1rem;
@@ -535,6 +538,7 @@ p {
     overflow-y: auto;
     scroll-snap-type: mandatory;
     scroll-padding-top: 1.1em;
+    scroll-behavior: smooth;
 
     .close {
       color: #aaa;
