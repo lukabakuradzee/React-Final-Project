@@ -5,6 +5,7 @@ const MovieCard = ({ movie }) => {
     
   return (
     <div className="movie-card">
+      
       <h2>{movie.title}</h2>
       <img src={movie.image} alt={movie.title} />
       <p>
@@ -15,9 +16,8 @@ const MovieCard = ({ movie }) => {
       <p><span>Year:</span> {movie.year}</p>
       <p><span>Genre:</span> {movie.genre.join(', ')}</p>
       <p><span>Description:</span> {movie.description}</p>
-      <button>
-        <Link to={`/movie/${movie.id}`}>View Details</Link>
-</button>
+      <Link to={`/movie/${movie.id}`}> <button>View Details</button></Link>
+
     </div>
   );
 };
