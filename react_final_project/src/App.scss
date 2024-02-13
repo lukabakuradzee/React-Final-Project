@@ -510,3 +510,81 @@ p {
     cursor: pointer;
   }
 }
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+
+  .modal-content {
+    background-color: black;
+    color: #ffd000de;
+    margin: 10% auto;
+    padding: 1.2em;
+    border: 1px solid #ffd000de;
+    border-radius: 5px;
+    max-width: 400px;
+    max-height: 200px;
+    overflow-y: auto;
+    scroll-snap-type: mandatory;
+    scroll-padding-top: 1.1em;
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 1.7rem;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color:#ffd000de;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      a {
+        text-decoration: none;
+        color: #ffd000de;
+        cursor: pointer;
+      }
+      li {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+
+
+.favorites-box {
+  width: 80px;
+  float: right;
+  button {
+    background-color: inherit;
+    border-style: none;
+  }
+  .favorite-movie-icon {
+    color:#ffd000de !important;
+    background-color: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+
+}
+

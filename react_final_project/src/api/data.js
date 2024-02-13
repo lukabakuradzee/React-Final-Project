@@ -9,10 +9,11 @@ import Search from '../components/Search/Search';
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '183752015amsh90d2c96438eb721p131076jsnee9865e9c6c7',
+        'X-RapidAPI-Key': '53fcafcc99msh3342bf243325896p153734jsn493848364f55',
         'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
       }
     };
+    
 
     try {
       const response = await fetch(url, options);

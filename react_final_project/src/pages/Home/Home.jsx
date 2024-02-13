@@ -16,6 +16,7 @@ const Home = () => {
           </div>
         </Link>
       )}
+
       <Data></Data>
       <button
         className="button-log-out"
