@@ -8,13 +8,23 @@ body {
 
 .App {
   h1 {
-    margin: 1em 0;
+    margin: 1.5em auto;
     color: #ffd000de;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   h2 {
     color: #d5d5d5;
   }
+}
+
+header {
+  padding-left: 44%;
+  display: flex;
+  align-items: center;
+}
+
+.favorites-box {
+  margin-left: 30em;
 }
 
 button {
