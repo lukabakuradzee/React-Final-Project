@@ -544,7 +544,7 @@ p {
 
       &:hover,
       &:focus {
-        color:#ffd000de;
+        color: #ffd000de;
         text-decoration: none;
         cursor: pointer;
       }
@@ -557,6 +557,10 @@ p {
         text-decoration: none;
         color: #ffd000de;
         cursor: pointer;
+
+        &:hover {
+          color: #d5d5d5;
+        }
       }
       li {
         margin-bottom: 10px;
@@ -571,8 +575,6 @@ p {
   }
 }
 
-
-
 .favorites-box {
   width: 80px;
   float: right;
@@ -581,11 +583,9 @@ p {
     border-style: none;
   }
   .favorite-movie-icon {
-    color:#ffd000de !important;
+    color: #ffd000de !important;
     background-color: none;
     font-size: 2.5rem;
     cursor: pointer;
   }
-
 }
-
