@@ -1,6 +1,6 @@
 import React from 'react';
 import FavoritesList from './FavoritesList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function FavoriteMoviesModal() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -8,6 +8,22 @@ function FavoriteMoviesModal() {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setModalOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+    
+  }, [])
+
 
   return (
     <div className='favorites-box'>

@@ -8,6 +8,7 @@ function FavoritesList() {
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setFavorites(storedFavorites);
+
   }, []);
 
   return (
