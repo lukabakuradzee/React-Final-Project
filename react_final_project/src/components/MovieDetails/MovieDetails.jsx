@@ -16,6 +16,7 @@ const MovieDetails = () => {
   const handleRateChange = (rating) => {
     setUserRating(rating);
   };
+  
   useEffect(() => {
     localStorage.setItem(id, userRating.toString())
     const fetchMovieDetails = async () => {
