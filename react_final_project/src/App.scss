@@ -290,7 +290,7 @@ p {
     font-size: 1.1rem;
     cursor: pointer;
   }
-  
+
   .imdb-logo {
     margin-left: 0.5em;
     width: 30px;
@@ -483,7 +483,8 @@ p {
     color: #ffd000de;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: bold;
+    letter-spacing: 0.5px;
   }
 
   .user-icon {
@@ -589,7 +590,17 @@ p {
   .favorite-movie-icon {
     color: #ffd000de !important;
     background-color: none;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     cursor: pointer;
+  }
+}
+
+.user-rating-content {
+  margin-top: 0.2em;
+  span {
+    font-size: 1.2rem;
+  }
+  p {
+    font-weight: bold;
   }
 }

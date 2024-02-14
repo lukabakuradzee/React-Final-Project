@@ -8,8 +8,8 @@ import Search from '../components/Search/Search';
     const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
     const options = {
       method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '53fcafcc99msh3342bf243325896p153734jsn493848364f55',
+    	headers: {
+        'X-RapidAPI-Key': '12eaa2c047msh237261d4664f961p17b89djsn90feffa1c8d3',
         'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
       }
     };
