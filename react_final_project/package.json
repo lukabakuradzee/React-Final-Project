@@ -2,6 +2,7 @@
   "name": "react_final_project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lukabakuradzee.github.io/React-Final-Project/react_final_project",
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --base-url '/React-Final-Project/react_final_project'",    
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sass:compile": "sass src/App.scss dist/App.css"

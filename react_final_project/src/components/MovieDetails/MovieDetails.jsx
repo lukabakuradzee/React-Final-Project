@@ -12,8 +12,8 @@ const MovieDetails = () => {
   const [userRating, setUserRating] = useState(0);
 
   const handleRateChange = (rating) => {
-    setUserRating(rating)
-  }
+    setUserRating(rating);
+  };
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -113,12 +113,11 @@ const MovieDetails = () => {
           >
             Add To Favorites
           </button>
-          <div className='user-rating-content'>
-        <StarRating onRate={handleRateChange} />
-        <p>User Rating: {userRating}</p>
-      </div>
+          <div className="user-rating-content">
+            <StarRating onRate={handleRateChange} />
+            <p>User Rating: {userRating}</p>
+          </div>
         </div>
-
       </div>
     </div>
   );
