@@ -462,12 +462,23 @@ p {
     cursor: pointer;
   }
   .add-to-favorites-btn {
-    margin-left: 0.5em;
+    margin: 2.5em 0.5em;
     background-color: #ffd000de;
     border-style: none;
     font-size: 1.1rem;
     padding: 0.5em 0.8em;
     cursor: pointer;
+  }
+}
+
+
+.user-rating-content {
+  margin-top: 0.2em;
+  span {
+    font-size: 1.2rem;
+  }
+  p {
+    font-weight: bold;
   }
 }
 
@@ -478,7 +489,7 @@ p {
   border-radius: 5px;
   margin: 3em auto;
   transition: 0.5s all;
-
+  
   h2 {
     color: #ffd000de;
     text-align: center;
@@ -486,7 +497,7 @@ p {
     font-weight: bold;
     letter-spacing: 0.5px;
   }
-
+  
   .user-icon {
     margin-right: 0.2em;
   }
@@ -595,12 +606,3 @@ p {
   }
 }
 
-.user-rating-content {
-  margin-top: 0.2em;
-  span {
-    font-size: 1.2rem;
-  }
-  p {
-    font-weight: bold;
-  }
-}

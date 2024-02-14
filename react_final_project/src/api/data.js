@@ -4,6 +4,7 @@ import { BarLoader } from 'react-spinners';
 import GenreFilter from '../components/Cards/GenreFilter';
 import Search from '../components/Search/Search';
 
+
  export const fetchData = async () => {
     const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
     const options = {
