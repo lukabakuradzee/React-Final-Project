@@ -9,12 +9,15 @@ const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [userRating, setUserRating] = useState(0);
+  const [userRating, setUserRating] = useState(() => {
+    return parseInt(localStorage.getItem(id)) || 0;
+  });
 
   const handleRateChange = (rating) => {
-    setUserRating(rating)
-  }
+    setUserRating(rating);
+  };
   useEffect(() => {
+    localStorage.setItem(id, userRating.toString())
     const fetchMovieDetails = async () => {
       try {
         const movieData = await fetchData();
@@ -31,7 +34,7 @@ const MovieDetails = () => {
     };
 
     fetchMovieDetails();
-  }, [id]);
+  }, [id, userRating]);
 
   // ADD TO FAVORITES
 
@@ -113,12 +116,11 @@ const MovieDetails = () => {
           >
             Add To Favorites
           </button>
-          <div className='user-rating-content'>
-        <StarRating onRate={handleRateChange} />
-        <p>User Rating: {userRating}</p>
-      </div>
+          <div className="user-rating-content">
+            <StarRating value={userRating} onRate={handleRateChange} />
+            <p>User Rating: {userRating}</p>
+          </div>
         </div>
-
       </div>
     </div>
   );

@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import StarRating from '../MovieDetails/StarRating';
 
 const MovieCard = React.memo(({ movie }) => {
-  const [userRating, setUserRating] = useState(0);
+  const [userRating, setUserRating] = useState(() => {
+    return parseInt(localStorage.getItem(movie.id)) || 0;
+});
+
+useEffect(() => {
+  localStorage.setItem(movie.id, userRating.toString())
+}, [movie.id, userRating])
+
 
   const handleRateChange = (rating) => {
     setUserRating(rating);
   };
+
 
   return (
     <div className="movie-card">
