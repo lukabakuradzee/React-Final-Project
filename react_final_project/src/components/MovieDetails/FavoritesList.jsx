@@ -16,7 +16,7 @@ const FavoritesList = () => {
   }, [state.isAuthenticated]);
 
   return (
-    <div>
+    <div className='favorite-movie-list'>
       {state.isAuthenticated ? (
         favorites.length > 0 ? (
           <ul>
