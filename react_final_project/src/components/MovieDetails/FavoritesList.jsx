@@ -8,15 +8,15 @@ const FavoritesList = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    if (state.isAuthenticated) {
-      const storedFavorites =
-        JSON.parse(localStorage.getItem('favorites')) || [];
+    if (state.isAuthenticated && state.user && state.user.userID) {
+      const userFavoriteKey = `favorites_${state.user.userID}`;
+      const storedFavorites = JSON.parse(localStorage.getItem(userFavoriteKey)) || [];
       setFavorites(storedFavorites);
     }
-  }, [state.isAuthenticated]);
+  }, [state.isAuthenticated, state.user]);
 
   return (
-    <div className='favorite-movie-list'>
+    <div className="favorite-movie-list">
       {state.isAuthenticated ? (
         favorites.length > 0 ? (
           <ul>

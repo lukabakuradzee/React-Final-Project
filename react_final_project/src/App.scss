@@ -156,7 +156,7 @@ p {
   background-color: rgba(0, 0, 0, 0.8); /* Adjust the opacity as needed */
 
   label {
-    font: 1.1rem /normal 'Inter', 'san-serif';
+    font: 1.1rem / normal 'Inter', 'san-serif';
     text-align: center;
     color: #ffd000de;
     letter-spacing: 1px;
@@ -170,10 +170,10 @@ p {
     color: #ffd000de;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 4px;
-    font: 1rem /normal 'inter', sans-serif;
+    font: 1rem / normal 'inter', sans-serif;
     outline: none;
   }
-  
+
   button {
     width: 100%; /* Take up the full width */
     margin: 0.5em 0;
@@ -194,8 +194,6 @@ p {
     }
   }
 }
-
-
 
 .sign-up-page {
   h2 {
@@ -473,7 +471,6 @@ p {
   }
 }
 
-
 .user-rating-content {
   margin-top: 0.2em;
   span {
@@ -491,7 +488,7 @@ p {
   border-radius: 5px;
   margin: 3em auto;
   transition: 0.5s all;
-  
+
   h2 {
     color: #ffd000de;
     text-align: center;
@@ -499,7 +496,7 @@ p {
     font-weight: bold;
     letter-spacing: 0.5px;
   }
-  
+
   .user-icon {
     margin-right: 0.2em;
   }
@@ -610,8 +607,7 @@ p {
 
 .favorite-movie-list {
   p {
-    font: 1.1rem /normal 'Inter', sans-serif;
-    letter-spacing: .7px;
+    font: 1.1rem / normal 'Inter', sans-serif;
+    letter-spacing: 0.7px;
   }
 }
-

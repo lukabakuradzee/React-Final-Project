@@ -4,11 +4,13 @@ import { fetchData } from '../../api/data';
 import { BarLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
+import { useAuthContext } from '../../context/auth/AuthContextProvider';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { state } = useAuthContext();
   const [userRating, setUserRating] = useState(() => {
     return parseInt(localStorage.getItem(id)) || 0;
   });
@@ -16,9 +18,9 @@ const MovieDetails = () => {
   const handleRateChange = (rating) => {
     setUserRating(rating);
   };
-  
+
   useEffect(() => {
-    localStorage.setItem(id, userRating.toString())
+    localStorage.setItem(id, userRating.toString());
     const fetchMovieDetails = async () => {
       try {
         const movieData = await fetchData();
@@ -41,7 +43,11 @@ const MovieDetails = () => {
 
   const addToFavorites = (movie) => {
     try {
-      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      if(!state.isAuthenticated || !state.user || !state.user.userID) {
+        return;
+      }
+      const userFavoriteKey = `favorites_${state.user.userID}`;
+      let favorites = JSON.parse(localStorage.getItem(userFavoriteKey)) || [];
 
       if (!Array.isArray(favorites)) {
         favorites = [];
@@ -49,7 +55,7 @@ const MovieDetails = () => {
 
       if (!favorites.some((favorite) => favorite.id === movie.id)) {
         favorites.push(movie);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
+        localStorage.setItem(userFavoriteKey, JSON.stringify(favorites));
         alert('Movie added to favorites!');
       } else {
         alert('Movie is already in favorites');
