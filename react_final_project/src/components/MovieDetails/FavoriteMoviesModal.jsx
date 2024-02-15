@@ -21,7 +21,7 @@ function FavoriteMoviesModal() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     }
-    
+
   }, [])
 
 

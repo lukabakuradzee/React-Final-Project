@@ -1,26 +1,36 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../../context/auth/AuthContextProvider';
 
-function FavoritesList() {
+const FavoritesList = () => {
+  const { state } = useAuthContext();
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setFavorites(storedFavorites);
-
-  }, []);
+    if (state.isAuthenticated) {
+      const storedFavorites =
+        JSON.parse(localStorage.getItem('favorites')) || [];
+      setFavorites(storedFavorites);
+    }
+  }, [state.isAuthenticated]);
 
   return (
     <div>
-      {favorites.length > 0 ? (
-        <ul>
-          {favorites.map((movie, index) => (
-           <Link to={`movie/${movie.id}`}><li key={index}>{movie.title}</li></Link>
-          ))}
-        </ul>
+      {state.isAuthenticated ? (
+        favorites.length > 0 ? (
+          <ul>
+            {favorites.map((movie, index) => (
+              <Link to={`movie/${movie.id}`} key={index}>
+                <li>{movie.title}</li>
+              </Link>
+            ))}
+          </ul>
+        ) : (
+          <p>No favorite movies yet</p>
+        )
       ) : (
-        <p>No favorite movies yet</p>
+        <p>Please log in to view your favorite movies.</p>
       )}
     </div>
   );
