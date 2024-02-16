@@ -5,6 +5,8 @@ import { BarLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import { useAuthContext } from '../../context/auth/AuthContextProvider';
+import { removeFromFavorites } from './RemoveFavorites';
+import { addToFavorites } from './AddToFavorites';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -40,29 +42,16 @@ const MovieDetails = () => {
   }, [id, userRating]);
 
   // ADD TO FAVORITES
+  const AddToFavoritesHandler = (movie) => {
+     addToFavorites(state, movie);
+     alert('Movie added to favorites!');
+  }
 
-  const addToFavorites = (movie) => {
-    try {
-      if(!state.isAuthenticated || !state.user || !state.user.userID) {
-        return;
-      }
-      const userFavoriteKey = `favorites_${state.user.userID}`;
-      let favorites = JSON.parse(localStorage.getItem(userFavoriteKey)) || [];
 
-      if (!Array.isArray(favorites)) {
-        favorites = [];
-      }
-
-      if (!favorites.some((favorite) => favorite.id === movie.id)) {
-        favorites.push(movie);
-        localStorage.setItem(userFavoriteKey, JSON.stringify(favorites));
-        alert('Movie added to favorites!');
-      } else {
-        alert('Movie is already in favorites');
-      }
-    } catch (error) {
-      console.error('Error adding to favorites:', error);
-    }
+  // Remove From Favorites
+  const removeFromFavoritesHandler = (movieId) => {
+    removeFromFavorites(state, movieId);
+    alert('Movie was removed from favorites');
   };
 
   if (loading) {
@@ -119,9 +108,15 @@ const MovieDetails = () => {
           </Link>
           <button
             className="add-to-favorites-btn"
-            onClick={() => addToFavorites(movie)}
+            onClick={() => AddToFavoritesHandler(movie)}
           >
             Add To Favorites
+          </button>
+          <button
+            className="remove-from-favorites-btn"
+            onClick={() => removeFromFavoritesHandler(movie.id)}
+          >
+            Remove From Favorites
           </button>
           <div className="user-rating-content">
             <StarRating value={userRating} onRate={handleRateChange} />
