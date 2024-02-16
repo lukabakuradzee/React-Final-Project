@@ -1,37 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lato:wght@900&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Raleway:wght@200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,900&display=swap');
 
-body {
-  background-color: #060d17;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-}
-
-.App {
-  h1 {
-    margin: 1em auto;
-    color: #ffd000de;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  h2 {
-    color: #d5d5d5;
-  }
-}
-
-button {
+//Mixin Button Styles
+@mixin button-styles {
+  padding: 0.8em 3em;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #d5d5d5;
+  font-size: 1.1rem;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ffd000de;
+    color: #000000;
+  }
 }
 
-h1 {
+// Variables
+$primary-color: #ffd000de;
+$secondary-color: #d5d5d5;
+$background-color: #060d17;
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Montserrat', sans-serif;
+
+
+// Global Styles
+body {
+  background-color: $background-color;
+  color: white;
+  font-family: $font-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
   text-align: center;
-  padding-left: 2em;
 }
 
 a {
   text-decoration: none;
 }
 
-p {
-  font-family: 'monospace', sans-serif;
+button {
+  font-family: $font-secondary;
+}
+
+// Component Styles
+.App {
+  h1 {
+    margin: 1em auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 2em;
+  }
+  h2 {
+    color: $secondary-color;
+  }
 }
 
 .sign-in-page {
@@ -39,21 +64,18 @@ p {
   flex-direction: column;
   align-items: center;
   padding: 2em;
-  margin: auto;
 
   h2 {
-    color: #ffd000de;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: $primary-color;
   }
 
   button {
-    width: 100%; /* Take up the full width */
+    width: 100%;
     margin: 0.5em 0;
     padding: 0.8em;
     background-color: rgba(255, 255, 255, 0.1);
-    color: #d5d5d5;
+    color: $secondary-color;
     font-size: 1.1rem;
-    font-family: 'Lato', sans-serif;
     font-weight: 900;
     border: none;
     border-radius: 4px;
@@ -61,11 +83,14 @@ p {
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #ffd000de;
-      color: #000000;
+      background-color: $primary-color;
+      color: black;
     }
   }
 }
+
+// Add more styles for other components as needed...
+
 
 .account-modal-content {
   width: 40%;

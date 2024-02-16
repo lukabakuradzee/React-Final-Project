@@ -4,32 +4,29 @@ import { BarLoader } from 'react-spinners';
 import GenreFilter from '../components/Cards/GenreFilter';
 import Search from '../components/Search/Search';
 
-
- export const fetchData = async () => {
-    const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
-    const options = {
-      method: 'GET',
-    	headers: {
-        'X-RapidAPI-Key': '12eaa2c047msh237261d4664f961p17b89djsn90feffa1c8d3',
-        'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
-      }
-    };
-    
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      return Array.isArray(result) ? result : [result];
-    } catch (error) {
-     throw new Error("Failed to fetch movie data :", + error.message)
+export const fetchData = async () => {
+  const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '12eaa2c047msh237261d4664f961p17b89djsn90feffa1c8d3',
+      'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
+    },
   };
-}
 
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    return Array.isArray(result) ? result : [result];
+  } catch (error) {
+    throw new Error('Failed to fetch movie data :', +error.message);
+  }
+};
 
 const Data = () => {
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const moviesPerPage = 21;
@@ -49,7 +46,6 @@ const Data = () => {
     fetchDataAndSetState();
   }, []);
 
-
   const handleGenreChange = (genre) => {
     setSelectedGenre((prevGenres) =>
       prevGenres.includes(genre)
@@ -57,8 +53,6 @@ const Data = () => {
         : [...prevGenres, genre],
     );
   };
-
-  
 
   // Apply filters and pagination
   const indexOfLastMovie = currentPage * moviesPerPage;
@@ -75,13 +69,13 @@ const Data = () => {
 
   return (
     <>
-      <Search  data={movieData} />
+      <Search data={movieData} />
       <GenreFilter
         selectedGenres={selectedGenre}
         handleGenreChange={handleGenreChange}
       />
       <div className="movie-list">
-        {error &&  <h1>{error}</h1>}
+        {error && <h1>{error}</h1>}
         {loading && (
           <div className="bar-loader" style={{}}>
             <BarLoader color="#ffd000de" />
