@@ -13,6 +13,7 @@ const StarRating = ({ value: initialValue, onRate }) => {
     localStorage.setItem('User Rating', newRating);
   };
 
+
   return (
     <div>
       {[1, 2, 3, 4, 5].map((index) => (
@@ -22,10 +23,11 @@ const StarRating = ({ value: initialValue, onRate }) => {
           onClick={() => handleRate(index)}
           style={{
             cursor: 'pointer',
-            color: index <= rating ? 'gold' : 'gray',
+            // color: index <= rating ? 'gold' : 'gray',
           }}
         >
-          &#9733;
+          {index <= rating ? '\u2605' : '\u2606'}
+          
         </span>
       ))}
     </div>
