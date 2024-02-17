@@ -18,7 +18,7 @@ useEffect(() => {
 
 
   return (
-    <div className="movie-card">
+    <div className="movie-card" key={movie.id}>
       <h2>{movie.title}</h2>
       <img src={movie.image} alt={movie.title} />
       <p>
