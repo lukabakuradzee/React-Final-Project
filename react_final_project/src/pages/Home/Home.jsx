@@ -15,7 +15,7 @@ const Home = () => {
           <div className="user-info">
             <p>
               <i class="fa-solid fa-user user-icon"></i>
-              <FormattedMessage id="Welcome" />, {user.userName}
+              <FormattedMessage id="welcome" defaultMessage={`Welcome,`}/> {user.userName}
             </p>
           </div>
         </Link>
@@ -28,7 +28,7 @@ const Home = () => {
           dispatch(logOutAction());
         }}
       >
-        Log Out
+        <FormattedMessage id='logout' defaultMessage={'Log out'} />
       </button>
     </div>
   );

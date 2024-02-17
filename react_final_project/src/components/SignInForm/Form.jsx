@@ -5,6 +5,7 @@ import { logInAction } from '../../context/auth/actions';
 import { HOME_PAGE } from '../../constants/routes';
 import { BarLoader } from 'react-spinners';
 import { Link, useNavigate } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 const Form = () => {
   const { dispatch } = useAuthContext();
@@ -39,7 +40,7 @@ const Form = () => {
 
   return (
     <form className="sign-in">
-      <label htmlFor="username">Username or Email</label>
+      <label htmlFor="username"><FormattedMessage id='user_name' defaultMessage={`User Name`} /></label>
       <input
         autoComplete="true"
         value={info.userName}
@@ -52,7 +53,7 @@ const Form = () => {
         }}
       />
 
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password"><FormattedMessage id='user_password' defaultMessage={`Password`}/></label>
       <input
         autoComplete="true"
         type="password"
@@ -75,9 +76,9 @@ const Form = () => {
         </div>
       )}
       {info.error && <h4>{info.error}</h4>}
-      <button onClick={submitHandler}>Submit</button>
+      <button onClick={submitHandler}><FormattedMessage id='submit' defaultMessage={`Submit`}/></button>
       <Link className="back-home" to={HOME_PAGE}>
-       <button>Back to home page</button>
+       <button><FormattedMessage id='back_to_home' defaultMessage={`Back To Home Page`}/></button> 
       </Link>
     </form>
   );

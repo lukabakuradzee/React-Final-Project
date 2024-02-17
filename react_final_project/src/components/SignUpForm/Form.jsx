@@ -4,6 +4,7 @@ import { HOME_PAGE, SIGN_IN_PAGE } from '../../constants/routes';
 import { Link, useNavigate } from 'react-router-dom';
 import { BarLoader } from 'react-spinners';
 import { emailRegex } from '../../utils/Regex';
+import { FormattedMessage } from 'react-intl';
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -42,7 +43,7 @@ const Form = () => {
 
   return (
     <form className="sign-in" action="">
-      <label htmlFor="userName">UserName</label>
+      <label htmlFor="userName"><FormattedMessage id='user_name' defaultMessage={`User Name`}/></label>
       <input
         autoComplete="true"
         type="text"
@@ -53,7 +54,7 @@ const Form = () => {
           });
         }}
       />
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email"><FormattedMessage id='user_email' defaultMessage={`Email`}/></label>
       <input
         autoComplete="true"
         type="text"
@@ -64,7 +65,7 @@ const Form = () => {
           });
         }}
       />
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password"><FormattedMessage id='user_password' defaultMessage={`Password`} /></label>
       <input
         type="password"
         name="password"
@@ -81,10 +82,10 @@ const Form = () => {
         </div>
       )}
 
-      <button onClick={signUpHandler}>Submit</button>
+      <button onClick={signUpHandler}><FormattedMessage id='submit' defaultMessage={`Submit`}/></button>
 
       <Link  to={HOME_PAGE}>
-        <button>Back to home page</button>
+        <button><FormattedMessage id='back_to_home' defaultMessage={`Back to home page`}/></button>
       </Link>
     </form>
   );

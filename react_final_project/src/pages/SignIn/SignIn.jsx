@@ -8,7 +8,7 @@ const SignIn = () => {
   const success = location?.state?.success;
   return (
     <div className="sign-in-page">
-      <h2><FormattedMessage id='Login'/></h2>
+      <h2><FormattedMessage id='login'defaultMessage={`Login`} /></h2>
       {success && <h1>Congratulations! You are now signed up.</h1>}
       <Form />
     </div>

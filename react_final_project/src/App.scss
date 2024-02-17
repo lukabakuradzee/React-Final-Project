@@ -404,7 +404,7 @@ button {
 .search-box {
   padding: 0.5em;
   border-radius: 5px;
-  input {
+  .search {
     width: 30%;
     display: block;
     margin-inline: auto;
@@ -417,8 +417,9 @@ button {
     background-color: #333;
   }
 
-  .search-box input::placeholder {
-    color: #ccc;
+  &::placeholder {
+    font-weight: bold;
+    color: #e9e3e3;
   }
   ul {
     width: 25%;
@@ -650,6 +651,7 @@ button {
   padding: 1em;
   label {
     color: #ffd000de;
+    font:  1.05rem /normal 'Inter', sans-serif;
   }
    select {
     padding: 0.2em;

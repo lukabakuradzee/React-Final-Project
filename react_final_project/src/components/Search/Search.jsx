@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const Search = ({ data }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -22,21 +23,27 @@ const Search = ({ data }) => {
     }
   };
   return (
-    <div className="search-box">
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={handleSearch}
-      />
-
-      <ul>
-        {searchQuery !== '' && filteredData.length > 0
-          ? filteredData.map((item) => <li key={item.id}>{item.title}</li>)
-          : null}
-      </ul>
-    </div>
-  );
+    <FormattedMessage id='search_placeholder' defaultMessage={`Search...`}>
+    {(message) => (
+      <>
+        <div className="search-box">
+          <input
+            className='search'
+            type="text"
+            placeholder={message}
+            value={searchQuery}
+            onChange={handleSearch}
+          />
+        <ul>
+          {searchQuery !== '' && filteredData.length > 0
+            ? filteredData.map((item) => <li key={item.id}>{item.title}</li>)
+            : null}
+        </ul>
+        </div>
+      </>
+    )}
+  </FormattedMessage>
+  )  
 };
 
 export default Search;
