@@ -2,9 +2,15 @@ import React from 'react';
 
 const LanguageSelector = ({ onLanguageChange }) => {
   const handleChange = (e) => {
-    const selectedLanguage = e.target.value;
-    onLanguageChange(selectedLanguage);
-  };
+      if(e.MetaKey) {
+          e.preventDefault();
+      } 
+      const selectedLanguage = e.target.value;
+      onLanguageChange(selectedLanguage);
+    }; 
+
+
+
   return (
     <div className="language-selector">
       <label htmlFor="language-select">Select Language: </label>
