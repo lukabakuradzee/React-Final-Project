@@ -645,3 +645,16 @@ button {
     letter-spacing: 0.7px;
   }
 }
+
+.language-selector {
+  padding: 1em;
+  label {
+    color: #ffd000de;
+  }
+   select {
+    padding: 0.2em;
+    background-color: #060d17;
+    color: #ffd000de;
+   }
+
+}
