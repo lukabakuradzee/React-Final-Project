@@ -26,7 +26,7 @@ function App() {
         <FavoriteMoviesModal />
         <Link to={HOME_PAGE}>
           <h1>
-            <i class="fab fa-google-play"></i>JustWatch
+            <i className="fab fa-google-play"></i>JustWatch
           </h1>
         </Link>
         <AppRoutes />
