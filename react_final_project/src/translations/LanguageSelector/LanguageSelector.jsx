@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import React from 'react';
 
 const LanguageSelector = ({ onLanguageChange }) => {
@@ -14,7 +15,7 @@ const LanguageSelector = ({ onLanguageChange }) => {
   return (
     <div className="language-selector">
       <label htmlFor="language-select">Select Language: </label>
-      <select id="language-select" onChange={handleChange}>
+      <select value={Cookies.get('locale')} id="language-select" onChange={handleChange}>
         <option value="en">English</option>
         <option value="ka">Georgian</option>
       </select>

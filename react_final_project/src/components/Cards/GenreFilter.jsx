@@ -1,6 +1,7 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-const GenreFilter = ({ selectedGenres, handleGenreChange }) => {
+const GenreFilter = React.memo(({ selectedGenres, handleGenreChange }) => {
   const genres = ['Action', 'Drama', 'Comedy', 'Sci-Fi', 'Romance', 'History'];
 
   return (
@@ -12,12 +13,12 @@ const GenreFilter = ({ selectedGenres, handleGenreChange }) => {
             value={genre}
             checked={selectedGenres.includes(genre)}
             onChange={() => handleGenreChange(genre)}
-          />
-          {genre}
+            />
+          <FormattedMessage id={`genres.${genre}`} defaultMessage={genre} />
+          {console.log(`'FormattedMessage id:' genres.${genre}`)}
         </label>
       ))}
     </div>
   );
-};
-
+});
 export default GenreFilter;

@@ -3,6 +3,7 @@ import MovieCard from '../components/Cards/MovieCard';
 import { BarLoader } from 'react-spinners';
 import GenreFilter from '../components/Cards/GenreFilter';
 import Search from '../components/Search/Search';
+import { useCallback } from 'react';
 
 export const fetchData = async () => {
   const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
@@ -19,7 +20,7 @@ export const fetchData = async () => {
     const result = await response.json();
     return Array.isArray(result) ? result : [result];
   } catch (error) {
-    throw new Error('Failed to fetch movie data :', +error.message);
+    throw new Error('Failed to fetch movie data :', + error.message);
   }
 };
 
@@ -46,13 +47,13 @@ const Data = () => {
     fetchDataAndSetState();
   }, []);
 
-  const handleGenreChange = (genre) => {
+  const handleGenreChange = useCallback((genre) => {
     setSelectedGenre((prevGenres) =>
       prevGenres.includes(genre)
         ? prevGenres.filter((g) => g !== genre)
-        : [...prevGenres, genre],
+        : [...prevGenres, genre]
     );
-  };
+  }, [setSelectedGenre]);
 
   // Apply filters and pagination
   const indexOfLastMovie = currentPage * moviesPerPage;
