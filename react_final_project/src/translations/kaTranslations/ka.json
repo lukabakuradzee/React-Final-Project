@@ -30,5 +30,9 @@
     "Romance": "რომანი",
     "History": "ისტორია"
   },
-  "favorite_movies_txt1": "გთხოვთ გაიაროთ ავტორიზაცია თქვენი ფავორიტი ფილმების სანახავად."
+  "favorite_movies_txt1": "გთხოვთ გაიაროთ ავტორიზაცია თქვენი ფავორიტი ფილმების სანახავად.",
+  "button_movie_details": "დეტალური აღწერა",
+  "button_add_favorites": "ფავორიტებში დამატება",
+  "button_remove_favorites": "ფავორიტებიდან წაშლა",
+  "user_rating": "შეფასება"
 }

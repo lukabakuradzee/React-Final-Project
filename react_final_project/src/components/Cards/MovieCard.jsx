@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import StarRating from '../MovieDetails/StarRating';
+import { FormattedMessage } from 'react-intl';
 
 const MovieCard = React.memo(({ movie }) => {
   const [userRating, setUserRating] = useState(() => {
@@ -29,7 +30,7 @@ useEffect(() => {
       <p><span>Year:</span> {movie.year}</p>
       <p><span>Genre:</span> {movie.genre.join(', ')}</p>
       <p><span>Description:</span> {movie.description}</p>
-      <Link to={`/movie/${movie.id}`}><button>View Details</button></Link>
+      <Link to={`/movie/${movie.id}`}><button><FormattedMessage id="button_movie_details" defaultMessage={"View Details"} /></button></Link>
       <div className='user-rating-content'>
         <StarRating value={userRating} onRate={handleRateChange} />
         <p>User Rating: {userRating}</p>

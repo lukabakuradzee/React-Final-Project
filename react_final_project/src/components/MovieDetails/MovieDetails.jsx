@@ -7,6 +7,7 @@ import StarRating from './StarRating';
 import { useAuthContext } from '../../context/auth/AuthContextProvider';
 import { removeFromFavorites } from './RemoveFavorites';
 import { addToFavorites } from './AddToFavorites';
+import { FormattedMessage } from 'react-intl';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -104,23 +105,23 @@ const MovieDetails = () => {
             </a>
           </p>
           <Link to={`/`}>
-            <button className="back-btn">Back</button>
+            <button className="back-btn"><FormattedMessage id='back' defaultMessage={`Back`} /></button>
           </Link>
           <button
             className="add-to-favorites-btn"
             onClick={() => AddToFavoritesHandler(movie)}
           >
-            Add To Favorites
+            <FormattedMessage id='button_add_favorites' defaultMessage={`Add To Favorites`} />
           </button>
           <button
             className="remove-from-favorites-btn"
             onClick={() => removeFromFavoritesHandler(movie.id)}
           >
-            Remove From Favorites
+            <FormattedMessage id='button_remove_favorites' defaultMessage={`Remove From Favorites`} />
           </button>
           <div className="user-rating-content">
             <StarRating value={userRating} onRate={handleRateChange} />
-            <p>User Rating: {userRating}</p>
+            <p><FormattedMessage id='user_rating' defaultMessage={`User Rating`} />: {userRating}</p>
           </div>
         </div>
       </div>
