@@ -1,6 +1,6 @@
 import './App.scss';
 import AppRoutes from './Routes';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HOME_PAGE } from './constants/routes';
 import FavoriteMoviesModal from './components/MovieDetails/FavoriteMoviesModal';
@@ -11,21 +11,13 @@ import Cookies from 'js-cookie';
 
 function App() {
   const [locale, setLocale] = useState(Cookies.get('locale') || 'en');
+  const messages = locale === 'ka' ? kaTranslations : {};
 
   const handleLanguageChange = (selectedLocale) => {
     setLocale(selectedLocale);
-    Cookies.set('locale', selectedLocale);
-    console.log('Setting locale: ', selectedLocale, {expires: 365})
   };
 
-  const messages = locale === 'ka' ? kaTranslations : {};
-  useEffect(() => {
-    const storedLocale = localStorage.getItem('locale');
-    console.log('Retrieved locale: ', storedLocale);
-    if (storedLocale) {
-      setLocale(storedLocale);
-    }
-  }, []);
+
 
   return (
     <IntlProvider locale={locale} messages={messages}>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../context/auth/AuthContextProvider';
+import { FormattedMessage } from 'react-intl';
 
 const FavoritesList = () => {
   const { state } = useAuthContext();
@@ -30,7 +31,7 @@ const FavoritesList = () => {
           <p>No favorite movies yet</p>
         )
       ) : (
-        <p>Please log in to view your favorite movies.</p>
+        <p><FormattedMessage id='favorite_movies_txt1' defaultMessage={"Please log in to see your favorite movies."}/></p>
       )}
     </div>
   );

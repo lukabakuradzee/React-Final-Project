@@ -15,7 +15,6 @@ const GenreFilter = React.memo(({ selectedGenres, handleGenreChange }) => {
             onChange={() => handleGenreChange(genre)}
             />
           <FormattedMessage id={`genres.${genre}`} defaultMessage={genre} />
-          {console.log(`'FormattedMessage id:' genres.${genre}`)}
         </label>
       ))}
     </div>
