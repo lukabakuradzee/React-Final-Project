@@ -16,7 +16,7 @@ const AuthGuard = ({ children }) => {
           <h3>JustWatch Account</h3>
 
           <Link to={SIGN_IN_PAGE}>
-            <button><FormattedMessage id='login' defaultMessage={`Login`}/></button>
+            <button><FormattedMessage id='user_authentication' defaultMessage={`Authorization`}/></button>
           </Link>
           <Link to={SIGN_UP_PAGE}>
             <button><FormattedMessage id='create_an_account' defaultMessage={`Create an account`}/></button>

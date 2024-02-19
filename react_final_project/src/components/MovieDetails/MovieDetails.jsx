@@ -21,6 +21,21 @@ const MovieDetails = () => {
   const handleRateChange = (rating) => {
     setUserRating(rating);
   };
+  const addMovieMessage = (
+    <FormattedMessage
+      id="movie_added_in_favorites_alert"
+      defaultMessage={`The movie has been added to favorites.`}
+    />
+  );
+  const removeMovieMessage = (
+    <FormattedMessage
+      id="movie_removed_in_favorites_alert"
+      defaultMessage={`This movie has been removed from your favorites.`}
+    />
+  );
+
+  const addMovieMessageText = addMovieMessage.props.defaultMessage;
+  const removeMovieMessageText = removeMovieMessage.props.defaultMessage;
 
   useEffect(() => {
     localStorage.setItem(id, userRating.toString());
@@ -44,15 +59,14 @@ const MovieDetails = () => {
 
   // ADD TO FAVORITES
   const AddToFavoritesHandler = (movie) => {
-     addToFavorites(state, movie);
-     alert('Movie added to favorites!');
-  }
-
+    addToFavorites(state, movie);
+    alert(addMovieMessageText);
+  };
 
   // Remove From Favorites
   const removeFromFavoritesHandler = (movieId) => {
     removeFromFavorites(state, movieId);
-    alert('Movie was removed from favorites');
+    alert(removeMovieMessageText);
   };
 
   if (loading) {
@@ -105,23 +119,37 @@ const MovieDetails = () => {
             </a>
           </p>
           <Link to={`/`}>
-            <button className="back-btn"><FormattedMessage id='back' defaultMessage={`Back`} /></button>
+            <button className="back-btn">
+              <FormattedMessage id="back" defaultMessage={`Back`} />
+            </button>
           </Link>
           <button
             className="add-to-favorites-btn"
             onClick={() => AddToFavoritesHandler(movie)}
           >
-            <FormattedMessage id='button_add_favorites' defaultMessage={`Add To Favorites`} />
+            <FormattedMessage
+              id="button_add_favorites"
+              defaultMessage={`Add To Favorites`}
+            />
           </button>
           <button
             className="remove-from-favorites-btn"
             onClick={() => removeFromFavoritesHandler(movie.id)}
           >
-            <FormattedMessage id='button_remove_favorites' defaultMessage={`Remove From Favorites`} />
+            <FormattedMessage
+              id="button_remove_favorites"
+              defaultMessage={`Remove From Favorites`}
+            />
           </button>
           <div className="user-rating-content">
             <StarRating value={userRating} onRate={handleRateChange} />
-            <p><FormattedMessage id='user_rating' defaultMessage={`User Rating`} />: {userRating}</p>
+            <p>
+              <FormattedMessage
+                id="user_rating"
+                defaultMessage={`User Rating`}
+              />
+              : {userRating}
+            </p>
           </div>
         </div>
       </div>

@@ -26,7 +26,6 @@ $background-color: #060d17;
 $font-primary: 'Roboto', sans-serif;
 $font-secondary: 'Montserrat', sans-serif;
 
-
 // Global Styles
 body {
   background-color: $background-color;
@@ -34,7 +33,12 @@ body {
   font-family: $font-primary;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $primary-color;
   text-align: center;
 }
@@ -65,6 +69,25 @@ button {
   align-items: center;
   padding: 2em;
 
+  .input-container {
+    position: relative;
+  }
+
+  .input-field {
+    width: 95%;
+    padding-left: 2em;
+  }
+
+  .user-icon,
+  .password-icon {
+    color: #ffd000de;
+    font-size: 1.1rem;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   h2 {
     color: $primary-color;
   }
@@ -91,7 +114,6 @@ button {
 
 // Add more styles for other components as needed...
 
-
 .account-modal-content {
   width: 40%;
   padding: 2em;
@@ -112,7 +134,7 @@ button {
   button {
     padding: 1em 2em;
     width: 100%;
-    color: #d5d5d5;
+    color: #ffd000de;
     font-size: 1.2rem;
     font-family: 'Lato', sans-serif;
     background-color: #1c252f;
@@ -187,8 +209,28 @@ button {
     letter-spacing: 1px;
   }
 
+  .input-container {
+    position: relative;
+  }
+
+  .input-field {
+    width: 93%;
+    padding-left: 2em;
+  }
+
+  .user-icon,
+  .password-icon,
+  .user-email {
+    color: #ffd000de;
+    font-size: 1.1rem;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   input {
-    width: 100%;
+    // width: 100%;
     margin: 0.5em 0;
     padding: 0.5em;
     background-color: rgba(255, 255, 255, 0.1);
@@ -225,6 +267,7 @@ button {
     text-align: center;
     color: #ffd000de;
   }
+  
 }
 
 .home {
@@ -329,8 +372,6 @@ button {
     vertical-align: middle;
   }
 }
-
-
 
 .movie-filter {
   display: flex;
@@ -500,11 +541,11 @@ button {
 
 .remove-from-favorites-btn {
   margin: 2.5em auto;
-    background-color: #ffd000de;
-    border-style: none;
-    font-size: 1.1rem;
-    padding: 0.5em 0.8em;
-    cursor: pointer;
+  background-color: #ffd000de;
+  border-style: none;
+  font-size: 1.1rem;
+  padding: 0.5em 0.8em;
+  cursor: pointer;
 }
 
 .user-rating-content {
@@ -652,13 +693,12 @@ button {
   padding: 1em;
   label {
     color: #ffd000de;
-    font:  1.05rem /normal 'Inter', sans-serif;
+    font: 1.05rem / normal 'Inter', sans-serif;
   }
-   select {
+  select {
     padding: 0.2em;
     background-color: #060d17;
     color: #ffd000de;
     outline: none;
-   }
-
+  }
 }

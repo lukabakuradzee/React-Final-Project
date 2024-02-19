@@ -14,7 +14,7 @@ const Home = () => {
         <Link to={`/user/${user.userName}`}>
           <div className="user-info">
             <p>
-              <i class="fa-solid fa-user user-icon"></i>
+              <i className="fa-solid fa-user user-icon"></i>
               <FormattedMessage id="welcome" defaultMessage={`Welcome,`}/> {user.userName}
             </p>
           </div>

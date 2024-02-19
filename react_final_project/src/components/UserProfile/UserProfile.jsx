@@ -15,7 +15,7 @@ const UserProfile = () => {
   return (
     <div className="user-account">
       <h2>
-        <i class="fa-solid fa-user user-icon"></i><FormattedMessage id='user_account' defaultMessage={`User Profile`}/>
+        <i className="fa-solid fa-user user-icon"></i><FormattedMessage id='user_account' defaultMessage={`User Profile`}/>
       </h2>
       {user && (
         <>

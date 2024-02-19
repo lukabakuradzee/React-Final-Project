@@ -28,7 +28,7 @@ const Form = () => {
     }
 
     setLoading(true);
-     
+
     signUp(info)
       .then(() => {
         navigate(SIGN_IN_PAGE, { state: { success: true } });
@@ -43,38 +43,57 @@ const Form = () => {
 
   return (
     <form className="sign-in" action="">
-      <label htmlFor="userName"><FormattedMessage id='user_name' defaultMessage={`User Name`}/></label>
-      <input
-        autoComplete="true"
-        type="text"
-        name="userName"
-        onChange={(e) => {
-          setInfo((prev) => {
-            return { ...prev, [e.target.name]: e.target.value };
-          });
-        }}
-      />
-      <label htmlFor="email"><FormattedMessage id='user_email' defaultMessage={`Email`}/></label>
-      <input
-        autoComplete="true"
-        type="text"
-        name="email"
-        onChange={(e) => {
-          setInfo((prev) => {
-            return { ...prev, [e.target.name]: e.target.value };
-          });
-        }}
-      />
-      <label htmlFor="password"><FormattedMessage id='user_password' defaultMessage={`Password`} /></label>
-      <input
-        type="password"
-        name="password"
-        onChange={(e) => {
-          setInfo((prev) => {
-            return { ...prev, [e.target.name]: e.target.value };
-          });
-        }}
-      />
+      <label htmlFor="userName">
+        <FormattedMessage id="user_name" defaultMessage={`User Name`} />
+      </label>
+      <div className="input-container">
+        <input
+          className="input-field"
+          autoComplete="true"
+          type="text"
+          name="userName"
+          onChange={(e) => {
+            setInfo((prev) => {
+              return { ...prev, [e.target.name]: e.target.value };
+            });
+          }}
+        />
+        <i className="fa-solid fa-user user-icon"></i>
+      </div>
+
+      <label htmlFor="email">
+        <FormattedMessage id="user_email" defaultMessage={`Email`} />
+      </label>
+      <div className="input-container">
+        <input
+          className="input-field"
+          autoComplete="true"
+          type="text"
+          name="email"
+          onChange={(e) => {
+            setInfo((prev) => {
+              return { ...prev, [e.target.name]: e.target.value };
+            });
+          }}
+        />
+        <i className="fa-solid fa-envelope user-email"></i>
+      </div>
+      <label htmlFor="password">
+        <FormattedMessage id="user_password" defaultMessage={`Password`} />
+      </label>
+      <div className="input-container">
+        <input
+          className="input-field"
+          type="password"
+          name="password"
+          onChange={(e) => {
+            setInfo((prev) => {
+              return { ...prev, [e.target.name]: e.target.value };
+            });
+          }}
+        />
+        <i className="fa-solid fa-lock password-icon"></i>
+      </div>
       {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
       {loading && (
         <div className="bar-loader" style={{}}>
@@ -82,10 +101,17 @@ const Form = () => {
         </div>
       )}
 
-      <button onClick={signUpHandler}><FormattedMessage id='submit' defaultMessage={`Submit`}/></button>
+      <button onClick={signUpHandler}>
+        <FormattedMessage id="submit" defaultMessage={`Submit`} />
+      </button>
 
-      <Link  to={HOME_PAGE}>
-        <button><FormattedMessage id='back_to_home' defaultMessage={`Back to home page`}/></button>
+      <Link to={HOME_PAGE}>
+        <button>
+          <FormattedMessage
+            id="back_to_home"
+            defaultMessage={`Back to home page`}
+          />
+        </button>
       </Link>
     </form>
   );

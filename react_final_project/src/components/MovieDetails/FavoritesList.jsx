@@ -11,7 +11,8 @@ const FavoritesList = () => {
   useEffect(() => {
     if (state.isAuthenticated && state.user && state.user.userID) {
       const userFavoriteKey = `favorites_${state.user.userID}`;
-      const storedFavorites = JSON.parse(localStorage.getItem(userFavoriteKey)) || [];
+      const storedFavorites =
+        JSON.parse(localStorage.getItem(userFavoriteKey)) || [];
       setFavorites(storedFavorites);
     }
   }, [state.isAuthenticated, state.user]);
@@ -28,10 +29,20 @@ const FavoritesList = () => {
             ))}
           </ul>
         ) : (
-          <p>No favorite movies yet</p>
+          <p>
+            <FormattedMessage
+              id="no_fav_movies_yet"
+              defaultMessage={'No favorite movies yet.'}
+            />
+          </p>
         )
       ) : (
-        <p><FormattedMessage id='favorite_movies_txt1' defaultMessage={"Please log in to see your favorite movies."}/></p>
+        <p>
+          <FormattedMessage
+            id="favorite_movies_txt1"
+            defaultMessage={'Please log in to see your favorite movies.'}
+          />
+        </p>
       )}
     </div>
   );
