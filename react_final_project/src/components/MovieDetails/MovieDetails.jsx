@@ -21,21 +21,7 @@ const MovieDetails = () => {
   const handleRateChange = (rating) => {
     setUserRating(rating);
   };
-  const addMovieMessage = (
-    <FormattedMessage
-      id="movie_added_in_favorites_alert"
-      defaultMessage={`The movie has been added to favorites.`}
-    />
-  );
-  const removeMovieMessage = (
-    <FormattedMessage
-      id="movie_removed_in_favorites_alert"
-      defaultMessage={`This movie has been removed from your favorites.`}
-    />
-  );
 
-  const addMovieMessageText = addMovieMessage.props.defaultMessage;
-  const removeMovieMessageText = removeMovieMessage.props.defaultMessage;
 
   useEffect(() => {
     localStorage.setItem(id, userRating.toString());
@@ -60,13 +46,13 @@ const MovieDetails = () => {
   // ADD TO FAVORITES
   const AddToFavoritesHandler = (movie) => {
     addToFavorites(state, movie);
-    alert(addMovieMessageText);
+    alert("Movie added to favorites");
   };
 
   // Remove From Favorites
   const removeFromFavoritesHandler = (movieId) => {
     removeFromFavorites(state, movieId);
-    alert(removeMovieMessageText);
+    alert("Movie removed from favorites");
   };
 
   if (loading) {
@@ -80,7 +66,7 @@ const MovieDetails = () => {
   // WHEN MOVIE DETAILS NOT FOUND
 
   if (!movie) {
-    return <div>No movie details found</div>;
+    return <div><FormattedMessage id='no_movie_details_found' defaultMessage={`No movie details was found`}/></div>;
   }
 
   return (

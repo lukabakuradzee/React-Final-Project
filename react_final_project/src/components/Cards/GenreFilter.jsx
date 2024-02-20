@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 const GenreFilter = React.memo(({ selectedGenres, handleGenreChange }) => {
-  const genres = ['Action', 'Drama', 'Comedy', 'Sci-Fi', 'Romance', 'History'];
+  const genres = ['Action', 'Drama', 'Comedy', 'Sci-Fi', 'Romance', 'History', 'Mystery', 'Thriller', 'Crime', 'Adventure', 'Fantasy'];
 
   return (
     <div className="movie-filter">

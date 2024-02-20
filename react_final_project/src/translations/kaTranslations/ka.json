@@ -38,6 +38,7 @@
   "button_remove_favorites": "ფავორიტებიდან წაშლა",
   "movie_added_in_favorites_alert": "ფილმი წარმატებით დაემატა ფავორიტებში!",
   "movie_removed_in_favorites_alert": "ფილმი წარმატებით წაიშალა ფავორიტებიდან!",
+  "no_movie_details_found": "ფილმის შესახებ ინფორმაცია არ მოიძებნა",
   "no_fav_movies_yet": "ფავორიტი ფილმების სია ცარიელია",
   "user_rating": "შეფასება"
 }
