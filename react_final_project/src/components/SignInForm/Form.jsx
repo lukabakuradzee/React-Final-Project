@@ -62,19 +62,19 @@ const Form = () => {
         <FormattedMessage id="user_password" defaultMessage={`Password`} />
       </label>
       <div className="input-container">
-      <input
-      className='input-field'
-        autoComplete="true"
-        type="password"
-        value={info.password}
-        name="password"
-        onChange={(e) => {
-          setInfo((prev) => {
-            return { ...prev, [e.target.name]: e.target.value };
-          });
-        }}
-      />
-      <i className="fa-solid fa-lock password-icon"></i>
+        <input
+          className="input-field"
+          autoComplete="true"
+          type="password"
+          value={info.password}
+          name="password"
+          onChange={(e) => {
+            setInfo((prev) => {
+              return { ...prev, [e.target.name]: e.target.value };
+            });
+          }}
+        />
+        <i className="fa-solid fa-lock password-icon"></i>
       </div>
       {loading && (
         <div className="bar-loader" style={{}}>

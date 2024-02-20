@@ -23,7 +23,6 @@ const StarRating = ({ value: initialValue, onRate }) => {
           onClick={() => handleRate(index)}
           style={{
             cursor: 'pointer',
-            // color: index <= rating ? 'gold' : 'gray',
           }}
         >
           {index <= rating ? '\u2605' : '\u2606'}

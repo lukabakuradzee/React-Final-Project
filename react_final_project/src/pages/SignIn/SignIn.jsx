@@ -9,7 +9,7 @@ const SignIn = () => {
   return (
     <div className="sign-in-page">
       <h2><FormattedMessage id='login'defaultMessage={`Login`} /></h2>
-      {success && <h1>Congratulations! You are now signed up.</h1>}
+      {success && <h1><FormattedMessage id='succesful_registration' defaultMessage={`Congratulations! You have successfully registered.`} /> </h1>}
       <Form />
     </div>
   );

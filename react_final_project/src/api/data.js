@@ -4,6 +4,7 @@ import { BarLoader } from 'react-spinners';
 import GenreFilter from '../components/Cards/GenreFilter';
 import Search from '../components/Search/Search';
 import { useCallback } from 'react';
+import { paginate } from '../utils/pagination';
 
 export const fetchData = async () => {
   const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
@@ -56,17 +57,9 @@ const Data = () => {
   }, [setSelectedGenre]);
 
   // Apply filters and pagination
-  const indexOfLastMovie = currentPage * moviesPerPage;
-  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-  const currentMovies = movieData
-    .filter(
-      (movie) =>
-        selectedGenre.length === 0 ||
-        selectedGenre.every((genre) => movie.genre.includes(genre)),
-    )
-    .slice(indexOfFirstMovie, indexOfLastMovie);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+const curretnMovies = paginate(movieData, currentPage, moviesPerPage, selectedGenre);
+const paginateHandler = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <>
@@ -83,7 +76,7 @@ const Data = () => {
           </div>
         )}
 
-        {currentMovies.map((movie) => (
+        {curretnMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
@@ -94,7 +87,7 @@ const Data = () => {
         }).map((_, index) => (
           <button
             key={index + 1}
-            onClick={() => paginate(index + 1)}
+            onClick={() => paginateHandler(index + 1)}
             className={currentPage === index + 1 ? 'activePage' : ''}
           >
             {index + 1}
