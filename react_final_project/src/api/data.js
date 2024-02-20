@@ -21,7 +21,7 @@ export const fetchData = async () => {
     const result = await response.json();
     return Array.isArray(result) ? result : [result];
   } catch (error) {
-    throw new Error('Failed to fetch movie data :', + error.message);
+    throw new Error('Failed to fetch movie data :', +error.message);
   }
 };
 
@@ -48,18 +48,25 @@ const Data = () => {
     fetchDataAndSetState();
   }, []);
 
-  const handleGenreChange = useCallback((genre) => {
-    setSelectedGenre((prevGenres) =>
-      prevGenres.includes(genre)
-        ? prevGenres.filter((g) => g !== genre)
-        : [...prevGenres, genre]
-    );
-  }, [setSelectedGenre]);
+  const handleGenreChange = useCallback(
+    (genre) => {
+      setSelectedGenre((prevGenres) =>
+        prevGenres.includes(genre)
+          ? prevGenres.filter((g) => g !== genre)
+          : [...prevGenres, genre],
+      );
+    },
+    [setSelectedGenre],
+  );
 
   // Apply filters and pagination
-
-const curretnMovies = paginate(movieData, currentPage, moviesPerPage, selectedGenre);
-const paginateHandler = (pageNumber) => setCurrentPage(pageNumber)
+  const {currentMovies, totalPages} = paginate(
+    movieData,
+    currentPage,
+    moviesPerPage,
+    selectedGenre,
+  );
+  const paginateHandler = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -76,15 +83,14 @@ const paginateHandler = (pageNumber) => setCurrentPage(pageNumber)
           </div>
         )}
 
-        {curretnMovies.map((movie) => (
+        {currentMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
 
       <div className="pagination">
-        {Array.from({
-          length: Math.ceil(movieData.length / moviesPerPage),
-        }).map((_, index) => (
+        {Array.from({length: totalPages})
+        .map((_, index) => (
           <button
             key={index + 1}
             onClick={() => paginateHandler(index + 1)}
