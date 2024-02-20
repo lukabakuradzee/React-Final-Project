@@ -41,11 +41,6 @@ const Data = () => {
     [setSelectedGenre],
   );
 
-  // Apply filters and pagination
-  // const currentPageMovies = movieData.slice(
-  //   (currentPage - 1) * moviesPerPage,
-  //   currentPage * moviesPerPage,
-  // );
 
   const { currentMovies, totalPages } = paginate(
     movieData,
@@ -54,12 +49,6 @@ const Data = () => {
     selectedGenre,
   );
   const paginateHandler = (pageNumber) => setCurrentPage(pageNumber);
-
-  console.log('SelectedGenre :', selectedGenre);
-  console.log('Current Movies: ', currentMovies);
-  console.log('Current Page: ', currentPage);
-  console.log('Movies PerPage: ', moviesPerPage);
-  console.log('Total Pages: ', totalPages);
 
   return (
     <>
