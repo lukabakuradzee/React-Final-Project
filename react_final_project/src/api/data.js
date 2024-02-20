@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { fetchData } from './fetchData';
 import MovieCard from '../components/Cards/MovieCard';
 import { BarLoader } from 'react-spinners';
 import GenreFilter from '../components/Cards/GenreFilter';
@@ -6,24 +7,7 @@ import Search from '../components/Search/Search';
 import { useCallback } from 'react';
 import { paginate } from '../utils/pagination';
 
-export const fetchData = async () => {
-  const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '12eaa2c047msh237261d4664f961p17b89djsn90feffa1c8d3',
-      'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
-    },
-  };
 
-  try {
-    const response = await fetch(url, options);
-    const result = await response.json();
-    return Array.isArray(result) ? result : [result];
-  } catch (error) {
-    throw new Error('Failed to fetch movie data :', +error.message);
-  }
-};
 
 const Data = () => {
   const [movieData, setMovieData] = useState([]);

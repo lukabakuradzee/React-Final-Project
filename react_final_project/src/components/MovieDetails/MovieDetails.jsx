@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchData } from '../../api/data';
+import { fetchData } from '../../api/fetchData';
 import { BarLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
