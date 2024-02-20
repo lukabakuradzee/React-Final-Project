@@ -7,8 +7,6 @@ import Search from '../components/Search/Search';
 import { useCallback } from 'react';
 import { paginate } from '../utils/pagination';
 
-
-
 const Data = () => {
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,13 +42,24 @@ const Data = () => {
   );
 
   // Apply filters and pagination
-  const {currentMovies, totalPages} = paginate(
+  // const currentPageMovies = movieData.slice(
+  //   (currentPage - 1) * moviesPerPage,
+  //   currentPage * moviesPerPage,
+  // );
+
+  const { currentMovies, totalPages } = paginate(
     movieData,
     currentPage,
     moviesPerPage,
     selectedGenre,
   );
   const paginateHandler = (pageNumber) => setCurrentPage(pageNumber);
+
+  console.log('SelectedGenre :', selectedGenre);
+  console.log('Current Movies: ', currentMovies);
+  console.log('Current Page: ', currentPage);
+  console.log('Movies PerPage: ', moviesPerPage);
+  console.log('Total Pages: ', totalPages);
 
   return (
     <>
@@ -73,8 +82,7 @@ const Data = () => {
       </div>
 
       <div className="pagination">
-        {Array.from({length: totalPages})
-        .map((_, index) => (
+        {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index + 1}
             onClick={() => paginateHandler(index + 1)}

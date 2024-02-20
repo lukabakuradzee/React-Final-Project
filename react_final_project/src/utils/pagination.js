@@ -1,23 +1,25 @@
 export const paginate = (
-  movieData,
+  currentPageMovies,
   currentPage,
   moviesPerPage,
   selectedGenre,
 ) => {
-  if (!Array.isArray(movieData)) {
-    return [];
+  if (!Array.isArray(currentPageMovies)) {
+    return { currentMovies: [], totalPages: 0 };
   }
-  const totalMovies = movieData.length;
+  const filteredMovies = currentPageMovies.filter(
+    (movie) =>
+      selectedGenre.length === 0 ||
+      selectedGenre.every((genre) => movie.genre.includes(genre))
+  );
+  const totalMovies = filteredMovies.length;
   const totalPages = Math.ceil(totalMovies / moviesPerPage);
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-  const currentMovies = movieData
-    .filter(
-      (movie) =>
-        selectedGenre.length === 0 ||
-        selectedGenre.every((genre) => movie.genre.includes(genre)),
-    )
-    .slice(indexOfFirstMovie, indexOfLastMovie);
+  const currentMovies = filteredMovies.slice(
+    indexOfFirstMovie,
+    indexOfLastMovie
+  );
 
   return { currentMovies, totalPages };
 };

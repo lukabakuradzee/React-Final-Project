@@ -703,3 +703,23 @@ button {
     outline: none;
   }
 }
+
+@media (max-width: 930px) {
+  .movie-card {
+    width: 20%;
+    img {
+      height: 200px;
+    }
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+}
