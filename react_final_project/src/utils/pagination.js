@@ -1,7 +1,3 @@
-// import Cookies from "js-cookie";
-
-import Cookies from "js-cookie";
-
 export const paginate = (
   currentPageMovies,
   currentPage,

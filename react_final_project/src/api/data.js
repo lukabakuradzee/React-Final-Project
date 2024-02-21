@@ -7,6 +7,7 @@ import Search from '../components/Search/Search';
 import { useCallback } from 'react';
 import { paginate } from '../utils/pagination';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Data = () => {
   const [movieData, setMovieData] = useState([]);
@@ -18,6 +19,7 @@ const Data = () => {
     return storedPage ? parseInt(storedPage) : 1;
   });
   const moviesPerPage = 21;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDataAndSetState = async () => {
@@ -54,6 +56,7 @@ const Data = () => {
   const paginateHandler = (pageNumber) => {
     setCurrentPage(pageNumber);
     Cookies.set('currentPage', pageNumber.toString());
+    navigate(`/?page=${pageNumber}`);
   };
 
   return (

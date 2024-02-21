@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 
 const Search = ({ data }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
   const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase(); 
+    const query = e.target.value.toLowerCase();
     setSearchQuery(query);
 
     if (query.length === 2 || query.length === 3 || query.length === 4) {
@@ -23,27 +24,29 @@ const Search = ({ data }) => {
     }
   };
   return (
-    <FormattedMessage id='search_placeholder' defaultMessage={`Search...`}>
-    {(message) => (
-      <>
-        <div className="search-box">
-          <input
-            className='search'
-            type="text"
-            placeholder={message}
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-        <ul>
-          {searchQuery !== '' && filteredData.length > 0
-            ? filteredData.map((item) => <li key={item.id}>{item.title}</li>)
-            : null}
-        </ul>
-        </div>
-      </>
-    )}
-  </FormattedMessage>
-  )  
+    <FormattedMessage id="search_placeholder" defaultMessage={`Search...`}>
+      {(message) => (
+        <>
+          <div className="search-box">
+            <input
+              className="search"
+              type="text"
+              placeholder={message}
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+            <ul>
+              {searchQuery !== '' && filteredData.length > 0
+                ? filteredData.map((item) => (
+                      <Link to={`/movie/${item.id}`}><li key={item.id}>{item.title}</li></Link>
+                  ))
+                : null}
+            </ul>
+          </div>
+        </>
+      )}
+    </FormattedMessage>
+  );
 };
 
 export default Search;
