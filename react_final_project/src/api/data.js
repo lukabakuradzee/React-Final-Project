@@ -6,13 +6,17 @@ import GenreFilter from '../components/Cards/GenreFilter';
 import Search from '../components/Search/Search';
 import { useCallback } from 'react';
 import { paginate } from '../utils/pagination';
+import Cookies from 'js-cookie';
 
 const Data = () => {
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [selectedGenre, setSelectedGenre] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(() => {
+    const storedPage = Cookies.get('currentPage');
+    return storedPage ? parseInt(storedPage) : 1;
+  });
   const moviesPerPage = 21;
 
   useEffect(() => {
@@ -41,14 +45,16 @@ const Data = () => {
     [setSelectedGenre],
   );
 
-
   const { currentMovies, totalPages } = paginate(
     movieData,
     currentPage,
     moviesPerPage,
     selectedGenre,
   );
-  const paginateHandler = (pageNumber) => setCurrentPage(pageNumber);
+  const paginateHandler = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    Cookies.set('currentPage', pageNumber.toString());
+  };
 
   return (
     <>

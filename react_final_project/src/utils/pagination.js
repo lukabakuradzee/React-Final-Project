@@ -1,3 +1,7 @@
+// import Cookies from "js-cookie";
+
+import Cookies from "js-cookie";
+
 export const paginate = (
   currentPageMovies,
   currentPage,
@@ -20,6 +24,7 @@ export const paginate = (
     indexOfFirstMovie,
     indexOfLastMovie
   );
+  
 
   return { currentMovies, totalPages };
 };
