@@ -60,7 +60,7 @@ const Search = React.memo(({ data }) => {
                         <Link to={`/movie/${item.id}`}>
                           <li key={item.id}>{item.title}</li>
                           <li key={item.id}>{item.year}</li>
-                          <li key={item.id}>{item.genre}</li>
+                          <li key={item.id}>{item.genre.join(', ')}</li>
                         </Link>
                       </div>
                     ))
