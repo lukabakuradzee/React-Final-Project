@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 
 function FavoriteMoviesModal() {
   const [modalOpen, setModalOpen] = useState(false);
-
-  const toggleModal = () => {
+  
+   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
 

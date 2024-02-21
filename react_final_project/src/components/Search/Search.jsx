@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 
-const Search = ({ data }) => {
+const Search = React.memo(({ data }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
@@ -23,6 +23,22 @@ const Search = ({ data }) => {
       setFilteredData(filtered);
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setSearchQuery('');
+        setFilteredData([]);
+      }
+    };
+
+    document.body.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <FormattedMessage id="search_placeholder" defaultMessage={`Search...`}>
       {(message) => (
@@ -35,18 +51,27 @@ const Search = ({ data }) => {
               value={searchQuery}
               onChange={handleSearch}
             />
-            <ul>
-              {searchQuery !== '' && filteredData.length > 0
-                ? filteredData.map((item) => (
-                      <Link to={`/movie/${item.id}`}><li key={item.id}>{item.title}</li></Link>
-                  ))
-                : null}
-            </ul>
+            <div className="movie-search-info">
+              <ul>
+                {searchQuery !== '' && filteredData.length > 0
+                  ? filteredData.map((item) => (
+                      <div className="movie-search-result" key={item.id}>
+                        <img src={item.thumbnail} alt="" />
+                        <Link to={`/movie/${item.id}`}>
+                          <li key={item.id}>{item.title}</li>
+                          <li key={item.id}>{item.year}</li>
+                          <li key={item.id}>{item.genre}</li>
+                        </Link>
+                      </div>
+                    ))
+                  : null}
+              </ul>
+            </div>
           </div>
         </>
       )}
     </FormattedMessage>
   );
-};
+});
 
 export default Search;
