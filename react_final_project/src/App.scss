@@ -478,7 +478,7 @@ button {
       list-style: none;
       padding: 3px 0;
       color: $primary-color;
-      font-family: 'monspace', sans-serif;
+      font-family: 'monospace', sans-serif;
       font-weight: bold;
     }
   }
@@ -489,6 +489,13 @@ button {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+  ul {
+    li {
+      &:hover {
+        color: #e9e3e3;
+      }
+    }
+  }
 }
 
 .movie-search-result {
