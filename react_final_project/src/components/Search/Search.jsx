@@ -56,7 +56,7 @@ const Search = React.memo(({ data }) => {
                 {searchQuery !== '' && filteredData.length > 0
                   ? filteredData.map((item) => (
                       <div className="movie-search-result" key={item.id}>
-                        <img src={item.thumbnail} alt="" />
+                        <img src={item.image} alt="" />
                         <Link to={`/movie/${item.id}`}>
                           <li key={item.id}>{item.title}</li>
                           <li key={item.id}>{item.year}</li>

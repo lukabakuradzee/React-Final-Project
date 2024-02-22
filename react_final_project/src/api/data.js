@@ -21,7 +21,6 @@ const Data = () => {
   const moviesPerPage = 21;
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const fetchDataAndSetState = async () => {
       try {
@@ -62,7 +61,7 @@ const Data = () => {
 
   return (
     <>
-      <Search data={movieData}/>
+      <Search data={movieData} />
       <GenreFilter
         selectedGenres={selectedGenre}
         handleGenreChange={handleGenreChange}
