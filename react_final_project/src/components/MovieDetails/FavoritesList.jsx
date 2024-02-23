@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../context/auth/AuthContextProvider';
 import { FormattedMessage } from 'react-intl';
 
-const FavoritesList = () => {
+const FavoritesList = ({ toggleModal }) => {
   const { state } = useAuthContext();
   const [favorites, setFavorites] = useState([]);
 
@@ -23,7 +23,13 @@ const FavoritesList = () => {
         favorites.length > 0 ? (
           <ul>
             {favorites.map((movie, index) => (
-              <Link to={`movie/${movie.id}`} key={index}>
+              <Link
+                to={`movie/${movie.id}`}
+                key={index}
+                onClick={() => {
+                  toggleModal();
+                }}
+              >
                 <li>{movie.title}</li>
               </Link>
             ))}

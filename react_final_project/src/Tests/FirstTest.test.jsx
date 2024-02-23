@@ -5,6 +5,8 @@ import { signIn } from '../api/auth';
 import { MemoryRouter } from 'react-router-dom';
 import { AuthContextProvider } from '../context/auth/AuthContextProvider';
 import Form from '../components/SignInForm/Form';
+import { fetchData } from '../api/fetchData';
+import Data from '../api/data';
 
 // MovieCard Test Component
 const movie = {
@@ -147,8 +149,8 @@ describe('Form Component', () => {
     });
     fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-    await waitFor(()=> expect(signIn).toHaveBeenCalledTimes(1))
-    expect(window.location.pathname).toEqual('/home')
+    await waitFor(() => expect(signIn).toHaveBeenCalledTimes(1));
+    expect(window.location.pathname).toEqual('/home');
   });
 
   it('displays an error message if login fails', async () => {
@@ -160,12 +162,48 @@ describe('Form Component', () => {
         <AuthContextProvider>
           <Form />
         </AuthContextProvider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     // Wait for the error message to be displayed
+    await screen.findByText(() =>
+      expect(screen.getByText(errorMessage)).toBeInTheDocument(),
+    );
+  });
+});
+
+// Sign Up Form
+
+jest.mock('../api/fetchData');
+
+describe('Data component', () => {
+  beforeEach(() => {
+    fetchData.mockReset();
+  });
+  it('renders loading spinner while fetching data', () => {
+    fetchData.mockResolvedValue([]);
+    render(<Data />);
+    expect(screen.getByTestId('loading-spinner')).toBeInTheDocument();
+  });
+
+  it('renders error message if fetching data fails', async () => {
+    const errorMessage = 'Error fetching data';
+    fetchData.mockRejectedValueOnce(new Error(errorMessage));
+    render(<Data />);
+
     await screen.findByText(() => expect(screen.getByText(errorMessage)).toBeInTheDocument());
+  });
+
+  it('renders movie cards after successfully fetching data', async () => {
+    const testData = [
+      { id: 1, title: 'Movie 1', image: 'movie1.jpg' },
+      { id: 2, title: 'Movie 2', image: 'movie2.jpg' },
+    ];
+    fetchData.mockResolvedValueOnce(testData);
+    render(<Data />);
+
+    await waitFor(() => expect(screen.getAllByTestId('movie-card')).toHaveLength(2));
   });
 });
