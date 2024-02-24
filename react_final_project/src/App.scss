@@ -328,17 +328,18 @@ button {
 .movie-list {
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0;
+  padding: 2em 1em 3em;
   display: flex;
-  place-content: center;
   flex-wrap: wrap;
+  gap: 1.5em;
+  row-gap: 3em;
 }
 
 .movie-card {
+  position: relative;
   box-sizing: border-box;
   width: 15%;
-  margin: 1.5em;
-  text-align:center;
+  text-align: center;
   background-color: black;
   color: $primary-color;
   h2 {
@@ -346,7 +347,7 @@ button {
     color: #d5d5d5;
   }
   p {
-    font-size: 0.9rem;
+    vertical-align: middle;
     font-weight: bold;
     margin: 0.5em 0;
     color: #d5d5d5;
@@ -381,6 +382,20 @@ button {
   }
 }
 
+.plus-icon {
+  position: absolute;
+  font-weight: bold;
+  color: white;
+  border: #d5d5d5;
+  background-color: #393838;
+  padding: 0.9em 0.6em;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
 .movie-card-bottom {
   background-color: #1c252f;
   padding: 0em 0.5em 2em;
@@ -400,7 +415,7 @@ button {
     font-size: 1em;
     color: #ffd000de;
     font-weight: bold;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     input {
       margin-right: 5px;
@@ -417,6 +432,11 @@ button {
   transition: 0.5s all;
 
   .user-icon {
+    background-color: $primary-color;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    padding: 0.5em;
+    color: black;
     margin-right: 0.5em;
   }
   p {
@@ -430,6 +450,11 @@ button {
     background-color: #ffd000de;
     p {
       color: black;
+    }
+
+    .user-icon {
+      background-color: transparent;
+      // color: black;
     }
   }
 }

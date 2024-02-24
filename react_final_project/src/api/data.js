@@ -18,7 +18,7 @@ const Data = () => {
     const storedPage = Cookies.get('currentPage');
     return storedPage ? parseInt(storedPage) : 1;
   });
-  const moviesPerPage = 20;
+  const moviesPerPage = 18;
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -17,8 +17,6 @@ function App() {
     setLocale(selectedLocale);
   };
 
-
-
   return (
     <IntlProvider locale={locale} messages={messages}>
       <div className="App">
