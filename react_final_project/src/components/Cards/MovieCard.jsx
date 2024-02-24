@@ -20,20 +20,19 @@ useEffect(() => {
 
   return (
     <div className="movie-card" key={movie.id}>
-      <h2>{movie.title}</h2>
       <img src={movie.image} alt={movie.title} />
       <p>
         <span>Rating: </span>
         {movie.rating}
         <img className='imdb-logo' src="https://www.justwatch.com/appassets/img/imdb-logo.png" alt="" />
       </p>
-      <p><span>Year:</span> {movie.year}</p>
-      <p><span>Genre:</span> {movie.genre.join(', ')}</p>
-      <p><span>Description:</span> {movie.description}</p>
-      <Link to={`/movie/${movie.id}`}><button><FormattedMessage id="button_movie_details" defaultMessage={"View Details"} /></button></Link>
+      <div className='movie-card-bottom'>
+      <Link to={`/movie/${movie.id}`}><button><FormattedMessage id="button_movie_details" defaultMessage={"Watchlist"} /></button></Link>
+      <h2>{movie.title}</h2>
       <div className='user-rating-content'>
         <StarRating value={userRating} onRate={handleRateChange} />
         <p>User Rating: {userRating}</p>
+      </div>
       </div>
     </div>
   );
