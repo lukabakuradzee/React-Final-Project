@@ -3,10 +3,19 @@ import MovieCard from '../components/Cards/MovieCard';
 import Search from '../components/Search/Search';
 import { signIn } from '../api/auth';
 import { MemoryRouter } from 'react-router-dom';
-import { AuthContextProvider } from '../context/auth/AuthContextProvider';
 import Form from '../components/SignInForm/Form';
 import { fetchData } from '../api/fetchData';
 import Data from '../api/data';
+import routes from '../config/routes';
+import AuthGuard from '../Guard/AuthGuard';
+import GustGuard from '../Guard/GustGuard';
+import Home from '../pages/Home/Home';
+import MovieDetails from '../components/MovieDetails/MovieDetails';
+import SignIn from '../pages/SignIn/SignIn';
+import SignUp from '../pages/SignUp/SignUp';
+import NotFound from '../pages/not-found';
+import UserProfile from '../components/UserProfile/UserProfile';
+import { AuthContextProvider } from '../context/auth/AuthContextProvider';
 
 // MovieCard Test Component
 const movie = {
@@ -193,7 +202,9 @@ describe('Data component', () => {
     fetchData.mockRejectedValueOnce(new Error(errorMessage));
     render(<Data />);
 
-    await screen.findByText(() => expect(screen.getByText(errorMessage)).toBeInTheDocument());
+    await screen.findByText(() =>
+      expect(screen.getByText(errorMessage)).toBeInTheDocument(),
+    );
   });
 
   it('renders movie cards after successfully fetching data', async () => {
@@ -204,6 +215,59 @@ describe('Data component', () => {
     fetchData.mockResolvedValueOnce(testData);
     render(<Data />);
 
-    await waitFor(() => expect(screen.getAllByTestId('movie-card')).toHaveLength(2));
+    await waitFor(() =>
+      expect(screen.getAllByTestId('movie-card')).toHaveLength(2),
+    );
   });
+});
+
+//  Routes
+
+describe('Route Configuration', () => {
+  test.each(routes)(
+    'should have correct configuration rate for % route',
+    (route) => {
+      expect(route).toHaveProperty('path');
+      expect(route).toHaveProperty('Component');
+
+      if (route.path === '/movie/:id' || route.path === '/user/:user') {
+        jest.expect(route).toHaveProperty('Guard');
+      } else {
+        jest.expect(route).not.toHaveProperty('Guard');
+      }
+
+      switch (route.path) {
+        case '/':
+          jest.expect(route.path).toBe('/');
+          jest.expect(route.Component).toBe(Home);
+          break;
+        case '/signin':
+          jest.expect(route.path).toBe('/signin');
+          jest.expect(route.Component).toBe(SignIn);
+          jest.expect(route.Guard).toBe(GustGuard);
+          break;
+        case '/signup':
+          jest.expect(route.path).toBe('/signup');
+          jest.expect(route.Component).toBe(SignUp);
+          jest.expect(route.Guard).toBe(GustGuard);
+          break;
+        case '/movie/:id':
+          jest.expect(route.path).toBe('/movie/:id');
+          jest.expect(route.Component).toBe(MovieDetails);
+          jest.expect(route.Guard).toBe(AuthGuard);
+          break;
+        case '/user/:user':
+          jest.expect(route.path).toBe('/user/:user');
+          jest.expect(route.Component).toBe(UserProfile);
+          jest.expect(route.Guard).toBe(AuthGuard);
+          break;
+        case '*':
+          jest.expect(route.path).toBe('*');
+          jest.expect(route.Component).toBe(NotFound);
+          break;
+        default:
+          throw new Error(`Unexpected route: ${route.path}`);
+      }
+    },
+  );
 });
