@@ -339,15 +339,15 @@ button {
   width: 15%;
   margin: 1.5em;
   text-align:center;
-  // text-rendering: geometricPrecision;
   background-color: black;
   color: $primary-color;
   h2 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #d5d5d5;
   }
   p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
     margin: 0.5em 0;
     color: #d5d5d5;
   }
@@ -383,7 +383,7 @@ button {
 
 .movie-card-bottom {
   background-color: #1c252f;
-  padding-bottom: 2em;
+  padding: 0em 0.5em 2em;
   height: 200px;
 }
 
@@ -400,6 +400,7 @@ button {
     font-size: 1em;
     color: #ffd000de;
     font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     input {
       margin-right: 5px;
