@@ -34,7 +34,7 @@ const Form = () => {
         navigate(SIGN_IN_PAGE, { state: { success: true } });
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       })
       .finally(() => {
         setLoading(false);

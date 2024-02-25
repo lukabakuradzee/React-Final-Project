@@ -361,6 +361,11 @@ button {
     height: 250px;
     // border-radius: 8px;
     margin-bottom: 0.5em;
+    transition: opacity 0.15s;
+    background: #000;
+    &:hover {
+      opacity: .9;
+    }
   }
 
   button {
@@ -372,6 +377,10 @@ button {
     font-weight: bold;
     letter-spacing: 0.5px;
     cursor: pointer;
+    transition: .5s;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   .imdb-logo {
@@ -382,8 +391,10 @@ button {
   }
 }
 
-.plus-icon {
+.plus-icon,
+.check-icon {
   position: absolute;
+  z-index: 1;
   font-weight: bold;
   color: white;
   border: #d5d5d5;
@@ -400,6 +411,10 @@ button {
   background-color: #1c252f;
   padding: 0em 0.5em 2em;
   height: 200px;
+}
+
+.plus-icon-watchlist {
+  margin-right: 0.4em;
 }
 
 .movie-filter {
@@ -603,18 +618,10 @@ button {
     padding: 0.5em 3em;
     cursor: pointer;
   }
-  .add-to-favorites-btn {
-    margin: 2.5em 0.5em;
-    background-color: #ffd000de;
-    border-style: none;
-    font-size: 1.1rem;
-    padding: 0.5em 0.8em;
-    cursor: pointer;
-  }
 }
 
 .remove-from-favorites-btn {
-  margin: 2.5em auto;
+  margin: 2.5em 1em;
   background-color: #ffd000de;
   border-style: none;
   font-size: 1.1rem;

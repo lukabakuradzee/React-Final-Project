@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import { useAuthContext } from '../../context/auth/AuthContextProvider';
 import { removeFromFavorites } from './RemoveFavorites';
-import { addToFavorites } from './AddToFavorites';
 import { FormattedMessage } from 'react-intl';
 
 const MovieDetails = () => {
@@ -43,11 +42,6 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [id, userRating]);
 
-  // ADD TO FAVORITES
-  const AddToFavoritesHandler = (movie) => {
-    addToFavorites(state, movie);
-    alert("Movie added to favorites");
-  };
 
   // Remove From Favorites
   const removeFromFavoritesHandler = (movieId) => {
@@ -109,15 +103,6 @@ const MovieDetails = () => {
               <FormattedMessage id="back" defaultMessage={`Back`} />
             </button>
           </Link>
-          <button
-            className="add-to-favorites-btn"
-            onClick={() => AddToFavoritesHandler(movie)}
-          >
-            <FormattedMessage
-              id="button_add_favorites"
-              defaultMessage={`Add To Favorites`}
-            />
-          </button>
           <button
             className="remove-from-favorites-btn"
             onClick={() => removeFromFavoritesHandler(movie.id)}
