@@ -6,24 +6,31 @@ function FavoriteMoviesModal() {
   const { state } = useAuthContext();
   const [modalOpen, setModalOpen] = useState(false);
   const [favoriteMovieCount, setFavoriteMovieCount] = useState(0);
+  const [updateTrigger, setUpdateTrigger] = useState(false); // Dummy state to trigger re-renders
+
+
 
   useEffect(() => {
+    const userFavoriteKey = state.user ? `favorites_${state.user.userID}` : null;
+
     const updateFavoriteMovieCount = () => {
-      const userFavoriteKey = `favorites_${state.user.userID}`;
-      const favoritesData = localStorage.getItem(userFavoriteKey);
-      if (favoritesData) {
-        const favorites = JSON.parse(favoritesData);
-        const count = favorites.length;
-        setFavoriteMovieCount(count);
+      if (userFavoriteKey) {
+        const favoritesData = localStorage.getItem(userFavoriteKey);
+        if (favoritesData) {
+          const favorites = JSON.parse(favoritesData);
+          setFavoriteMovieCount(favorites.length);
+          // Update the dummy state to trigger re-render
+          setUpdateTrigger(prevState => !prevState);
+        } else {
+          setFavoriteMovieCount(0);
+        }
       }
     };
 
-    if (state.isAuthenticated && state.user && state.user.userID) {
-      updateFavoriteMovieCount();
-    }
+    updateFavoriteMovieCount();
 
     const handleStorageChange = (event) => {
-      if (event.key === `favorites_${state.user.userID}` || event.type === 'favoritesChanged') {
+      if (event.key === userFavoriteKey) {
         updateFavoriteMovieCount();
       }
     };
@@ -33,11 +40,29 @@ function FavoriteMoviesModal() {
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
-  }, [state.isAuthenticated, state.user]);
+  }, [state.user, updateTrigger]);
+  
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setModalOpen(false);
+      }
+    };
+  
+    document.addEventListener('keydown', handleKeyDown);
+  
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+ 
+  
 
   const updateFavorites = () => {
     const event = new Event('favoritesChanged');

@@ -15,7 +15,6 @@ const MovieCard = React.memo(({ movie }) => {
     return localStorage.getItem(`${movie.id}_isInFavorites`) === 'true';
   });
 
-
   useEffect(() => {
     localStorage.setItem(movie.id, userRating.toString());
   }, [movie.id, userRating]);
@@ -24,18 +23,15 @@ const MovieCard = React.memo(({ movie }) => {
     setUserRating(rating);
   };
 
-  
   const handleToggleFavorites = () => {
     if (isInFavorites) {
       removeFromFavorites(state, movie.id);
       setIsInFavorites(false);
       localStorage.setItem(`${movie.id}_isInFavorites`, 'false');
-      alert('Movie was removed from Watchlist');
     } else {
-      const result = addToFavorites(state, movie);
+      addToFavorites(state, movie);
       setIsInFavorites(true);
       localStorage.setItem(`${movie.id}_isInFavorites`, 'true');
-      alert(result);
     }
   };
 
