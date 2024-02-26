@@ -14,6 +14,7 @@ const FavoritesList = ({ toggleModal }) => {
       const storedFavorites =
         JSON.parse(localStorage.getItem(userFavoriteKey)) || [];
       setFavorites(storedFavorites);
+      console.log(storedFavorites)
     }
   }, [state.isAuthenticated, state.user]);
 
