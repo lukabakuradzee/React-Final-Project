@@ -364,7 +364,7 @@ button {
     transition: opacity 0.15s;
     background: #000;
     &:hover {
-      opacity: .9;
+      opacity: 0.9;
     }
   }
 
@@ -377,7 +377,7 @@ button {
     font-weight: bold;
     letter-spacing: 0.5px;
     cursor: pointer;
-    transition: .5s;
+    transition: 0.5s;
     &:hover {
       opacity: 0.8;
     }
@@ -391,8 +391,7 @@ button {
   }
 }
 
-.plus-icon,
-.check-icon {
+.plus-icon {
   position: absolute;
   z-index: 1;
   font-weight: bold;
@@ -413,7 +412,8 @@ button {
   height: 200px;
 }
 
-.plus-icon-watchlist {
+.plus-icon-watchlist,
+.check-icon-watchlist {
   margin-right: 0.4em;
 }
 
@@ -751,6 +751,7 @@ button {
 .favorites-box {
   width: 80px;
   float: right;
+
   button {
     background-color: inherit;
     border-style: none;

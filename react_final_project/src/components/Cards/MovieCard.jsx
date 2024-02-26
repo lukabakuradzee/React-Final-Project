@@ -4,46 +4,44 @@ import StarRating from '../MovieDetails/StarRating';
 import { FormattedMessage } from 'react-intl';
 import { addToFavorites } from '../MovieDetails/AddToFavorites';
 import { useAuthContext } from '../../context/auth/AuthContextProvider';
+import { removeFromFavorites } from '../MovieDetails/RemoveFavorites';
 
 const MovieCard = React.memo(({ movie }) => {
   const { state } = useAuthContext();
   const [userRating, setUserRating] = useState(() => {
     return parseInt(localStorage.getItem(movie.id)) || 0;
   });
-   
-  const isMovieInFavorites = () => {
-    const favorites = state.favorites || [];
-    return favorites.some((favorite) => favorite.id === movie.id);
-  };
-  console.log("Movie id :", movie.id)
-
   const [isInFavorites, setIsInFavorites] = useState(() => {
-    return isMovieInFavorites(movie);
+    return localStorage.getItem(`${movie.id}_isInFavorites`) === 'true';
   });
 
-  
+
   useEffect(() => {
     localStorage.setItem(movie.id, userRating.toString());
   }, [movie.id, userRating]);
-
-  useEffect(() => {
-    setIsInFavorites(isMovieInFavorites(movie));
-  }, [movie]);
-
 
   const handleRateChange = (rating) => {
     setUserRating(rating);
   };
 
-  const handleAddToFavorites = () => {
-      addToFavorites(state, movie);
-      alert('Movie is added to Watchlist!');
-      setIsInFavorites(true); 
+  
+  const handleToggleFavorites = () => {
+    if (isInFavorites) {
+      removeFromFavorites(state, movie.id);
+      setIsInFavorites(false);
+      localStorage.setItem(`${movie.id}_isInFavorites`, 'false');
+      alert('Movie was removed from Watchlist');
+    } else {
+      const result = addToFavorites(state, movie);
+      setIsInFavorites(true);
+      localStorage.setItem(`${movie.id}_isInFavorites`, 'true');
+      alert(result);
+    }
   };
 
   const iconClassName = isInFavorites
-    ? 'fa-solid fa-check check-icon'
-    : 'fa-solid fa-plus plus-icon';
+    ? 'fa-solid fa-check check-icon-watchlist'
+    : 'fa-solid fa-plus plus-icon-watchlist';
 
   return (
     <div className="movie-card">
@@ -64,11 +62,10 @@ const MovieCard = React.memo(({ movie }) => {
         <button
           className="watchlist-button"
           key={movie.id}
-          onClick={isInFavorites ? null : () => handleAddToFavorites(movie)}
+          onClick={() => handleToggleFavorites(movie)}
         >
-          <i
-            className={`fa-solid ${iconClassName}fa-plus plus-icon-watchlist`}
-          ></i>
+          <i className={`${iconClassName}`}></i>
+
           <FormattedMessage
             id="button_movie_details"
             defaultMessage={'Watchlist'}

@@ -27,7 +27,7 @@ function FavoriteMoviesModal() {
 
   return (
     <div>
-      <div className="favorites-box">
+      <div className="favorites-box" tabIndex="1">
         <button onClick={toggleModal}>
           <i className="fa-solid fa-clapperboard favorite-movie-icon"></i>
         </button>
