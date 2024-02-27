@@ -6,9 +6,7 @@ function FavoriteMoviesModal() {
   const { state } = useAuthContext();
   const [modalOpen, setModalOpen] = useState(false);
   const [favoriteMovieCount, setFavoriteMovieCount] = useState(0);
-  const [updateTrigger, setUpdateTrigger] = useState(false); // Dummy state to trigger re-renders
-
-
+  const [updateTrigger, setUpdateTrigger] = useState(false);
 
   useEffect(() => {
     const userFavoriteKey = state.user ? `favorites_${state.user.userID}` : null;
@@ -19,8 +17,6 @@ function FavoriteMoviesModal() {
         if (favoritesData) {
           const favorites = JSON.parse(favoritesData);
           setFavoriteMovieCount(favorites.length);
-          // Update the dummy state to trigger re-render
-          setUpdateTrigger(prevState => !prevState);
         } else {
           setFavoriteMovieCount(0);
         }
@@ -32,6 +28,7 @@ function FavoriteMoviesModal() {
     const handleStorageChange = (event) => {
       if (event.key === userFavoriteKey) {
         updateFavoriteMovieCount();
+        setUpdateTrigger((prevTrigger) => !prevTrigger); // Trigger re-render
       }
     };
 
@@ -41,12 +38,10 @@ function FavoriteMoviesModal() {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, [state.user, updateTrigger]);
-  
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
-
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -54,20 +49,13 @@ function FavoriteMoviesModal() {
         setModalOpen(false);
       }
     };
-  
+
     document.addEventListener('keydown', handleKeyDown);
-  
+
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
- 
-  
-
-  const updateFavorites = () => {
-    const event = new Event('favoritesChanged');
-    window.dispatchEvent(event);
-  };
 
   return (
     <div>
@@ -82,7 +70,7 @@ function FavoriteMoviesModal() {
               <span className="close" onClick={toggleModal}>
                 &times;
               </span>
-              <FavoritesList toggleModal={toggleModal} updateFavorites={updateFavorites}/>
+              <FavoritesList toggleModal={toggleModal} updateTrigger={updateTrigger} />
             </div>
           </div>
         )}

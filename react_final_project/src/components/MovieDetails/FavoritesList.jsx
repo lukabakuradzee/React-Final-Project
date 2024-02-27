@@ -18,6 +18,7 @@ const FavoritesList = ({ toggleModal }) => {
     }
   }, [state.isAuthenticated, state.user]);
 
+
   return (
     <div className="favorite-movie-list">
       {state.isAuthenticated ? (

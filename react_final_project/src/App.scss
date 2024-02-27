@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lato:wght@900&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Raleway:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,900&display=swap');
+* {
+  outline: none;
+}
 
 //Mixin Button Styles
 @mixin button-styles {
@@ -141,6 +144,7 @@ button {
     color: #ffd000de;
     font-size: 1.2rem;
     font-family: 'Lato', sans-serif;
+    font-weight: bold;
     background-color: #1c252f;
     border-style: none;
     border-radius: 10px;
@@ -207,7 +211,8 @@ button {
   background-color: rgba(0, 0, 0, 0.8); /* Adjust the opacity as needed */
 
   label {
-    font: 1.1rem / normal 'Inter', 'san-serif';
+    font: 1.1rem / normal 'Roboto', 'san-serif';
+    font-weight: bold;
     text-align: center;
     color: #ffd000de;
     letter-spacing: 1px;
@@ -537,6 +542,7 @@ button {
 .movie-search-info {
   width: 40%;
   position: absolute;
+  z-index: 2;
   left: 50%;
   transform: translate(-50%);
   ul {
@@ -752,7 +758,7 @@ button {
 
   button {
     padding: 1em 2em;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: bold;
     color: white;
     background-color: inherit;
@@ -763,13 +769,13 @@ button {
     outline: none;
     cursor: pointer;
     &:hover {
-      background-color:#393838;
+      background-color: #393838;
     }
   }
 
   .favorite-movie-quantity {
-    padding: .1em .8em;
-    margin-left: .2em;
+    padding: 0.1em 0.8em;
+    margin-left: 0.2em;
     border-radius: 30%;
     font-size: 0.7rem;
     color: black;
